@@ -13,4 +13,5 @@ Premium black identity using black, charcoal, soft white, and steel grey.
 - Storefront-led cinematic first impression.
 - Dark editorial surfaces, restrained contrast, and refined spacing.
 - Shared restaurant content styled as a premium concept.
-- No invented awards, prices, addresses, hours, or ordering URLs.
+- Real Instagram-derived menu visuals and pricing references included for presentation.
+- No invented awards, final hours, or ordering URLs.

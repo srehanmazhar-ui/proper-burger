@@ -11,4 +11,5 @@ These items must be confirmed before launch.
 | Locations | Address shown as 3950 Sage Hill Drive NW from Instagram; confirm map link, service area, and parking/delivery notes. |
 | Hours | Opening hours, holiday hours, and kitchen cutoff times. |
 | Brand | Final logo files, typography preferences, photography rules, and social links. |
+| Photography | Confirm whether the Instagram-derived screenshot crops can remain temporarily for presentation, or replace with approved product photos before launch. |
 | Legal | Allergen wording, nutrition claims, terms, privacy policy, and copyright details. |

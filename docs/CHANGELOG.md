@@ -19,3 +19,4 @@
 - Recorded GitHub push and Vercel GitHub-link blockers.
 - Polished both concept routes into more complete presentable restaurant websites with grouped menu sections, experience highlights, improved visit/order blocks, and cleaner public placeholder copy.
 - Added real Rollz Instagram-derived content: Sage Hill location, smashburger prices, Double Smash Fix, meal add-on, Alberta beef line, loaded fries, and chicken item references.
+- Added real visual reference crops from the provided screenshots to both `/classic` and `/premium`.

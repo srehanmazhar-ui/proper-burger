@@ -29,6 +29,13 @@ export type Concept = {
   visitCards: { label: string; value: string; note: string }[];
 };
 
+export type GalleryItem = {
+  src: string;
+  alt: string;
+  title: string;
+  caption: string;
+};
+
 export const confirmationRequired = "CLIENT CONFIRMATION REQUIRED";
 export const publicPending = "Coming soon";
 export const venueName = "Rollz Ice Cream & Desserts";
@@ -114,6 +121,23 @@ export const menu: MenuItem[] = [
     category: "Drinks",
     price: "Confirm",
     tags: ["Combo drink"]
+  }
+];
+
+export const gallery: GalleryItem[] = [
+  {
+    src: "/images/rollz-smash-menu.png",
+    alt: "Rollz smashburger menu poster with Single Smash, Double Smash, Triple Smash, meal upgrade, and Sage Hill address.",
+    title: "Actual smashburger promo",
+    caption:
+      "Real Rollz menu artwork showing Single Smash, Double Smash, Triple Smash, Alberta beef message, meal upgrade, and Sage Hill address."
+  },
+  {
+    src: "/images/rollz-tender-dip.png",
+    alt: "A chicken tender dipped into sauce at Rollz.",
+    title: "Chicken and sauce cue",
+    caption:
+      "Food-content reference for the chicken/tenders side of the menu, with a close-up sauce dip."
   }
 ];
 

@@ -25,6 +25,7 @@ Updated: 2026-09-21
 | Blocked | Connect Vercel project to private GitHub repository from Vercel account. |
 | Done | Polish both routes from rough concept pass into fuller presentable restaurant websites. |
 | Done | Add Rollz Instagram-derived real content for menu, location, and burger launch context. |
+| Done | Add provided Rollz menu/food screenshots as real visual references on both routes. |
 
 ## Current Notes
 
@@ -37,3 +38,4 @@ Updated: 2026-09-21
 - Vercel GitHub integration could not connect the private repository during deployment, but the local-file deployment completed successfully.
 - Second pass replaced internal-looking placeholders with client-facing `Coming soon` copy, added grouped menu sections, experience sections, improved visit/order areas, and stronger presentation flow for both concepts.
 - Current content uses provided Instagram screenshots as source material: Rollz Ice Cream & Desserts, 3950 Sage Hill Drive NW, smashburger pricing, meal upgrade, Alberta beef line, loaded fries, chicken items, and Double Smash Fix.
+- Both routes now include a real Rollz smashburger menu poster crop and a chicken/tender food reference crop from the user-provided screenshots. These are presentation placeholders until final approved photography and logo assets are supplied.

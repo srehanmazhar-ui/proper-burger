@@ -17,4 +17,5 @@ Warm classic burger-joint character using:
 - Nostalgic counter-service feel with bold appetite cues.
 - Cream surfaces, red accents, charcoal text, and tactile card layouts.
 - Fast path to Menu and Ordering Info.
-- No invented history, establishment year, prices, or location claims.
+- Real Instagram-derived menu visuals and pricing references included for presentation.
+- No invented history, establishment year, final hours, or ordering links.

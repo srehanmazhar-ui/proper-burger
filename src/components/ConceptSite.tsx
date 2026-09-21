@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Concept, menu, publicPending, venueAddress, venueName } from "@/data/restaurant";
+import { Concept, gallery, menu, publicPending, venueAddress, venueName } from "@/data/restaurant";
 
 type Props = {
   concept: Concept;
@@ -110,6 +110,30 @@ export function ConceptSite({ concept, alternate }: Props) {
           {concept.highlights.map((highlight) => (
             <article key={highlight}>
               <span>{highlight}</span>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section photo-section" aria-label="Real menu photos">
+        <div className="section-heading">
+          <p className="eyebrow">Real References</p>
+          <h2>Actual Rollz menu visuals.</h2>
+          <p>
+            These images come from the provided Instagram material and are used as realistic placeholders until final logo,
+            product photography, and approved brand assets are ready.
+          </p>
+        </div>
+        <div className="photo-grid">
+          {gallery.map((item) => (
+            <article className="photo-card" key={item.src}>
+              <div className="photo-frame">
+                <Image src={item.src} alt={item.alt} fill sizes="(max-width: 900px) 100vw, 50vw" />
+              </div>
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.caption}</p>
+              </div>
             </article>
           ))}
         </div>
