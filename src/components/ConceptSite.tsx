@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Concept, gallery, menu, publicPending, venueAddress, venueName } from "@/data/restaurant";
+import { Concept, menu, promo, publicPending, venueAddress, venueName } from "@/data/restaurant";
 
 type Props = {
   concept: Concept;
@@ -62,6 +62,7 @@ export function ConceptSite({ concept, alternate }: Props) {
           alt={concept.imageAlt}
           fill
           priority
+          loading="eager"
           sizes="100vw"
           className="hero-image"
         />
@@ -97,6 +98,28 @@ export function ConceptSite({ concept, alternate }: Props) {
         </div>
       </section>
 
+      <section className="promo-banner" aria-label="Featured burger promotion">
+        <div className="promo-copy">
+          <p className="eyebrow">{promo.label}</p>
+          <h2>{promo.title}</h2>
+          <p>{promo.detail}</p>
+          <div className="promo-actions">
+            <a href="#promo" className="primary-button">
+              View Deal
+            </a>
+            <a href="#menu" className="secondary-button surface-button">
+              Build A Meal
+            </a>
+          </div>
+        </div>
+        <div className="promo-price">
+          <span>{promo.priceLine}</span>
+        </div>
+        <div className="promo-image">
+          <Image src={promo.image} alt={promo.imageAlt} fill sizes="(max-width: 900px) 100vw, 34vw" />
+        </div>
+      </section>
+
       <section className="section intro-section" aria-label="Website overview">
         <div className="intro-copy">
           <p className="eyebrow">Real Menu Context</p>
@@ -115,34 +138,10 @@ export function ConceptSite({ concept, alternate }: Props) {
         </div>
       </section>
 
-      <section className="section photo-section" aria-label="Real menu photos">
-        <div className="section-heading">
-          <p className="eyebrow">Real References</p>
-          <h2>Actual Rollz menu visuals.</h2>
-          <p>
-            These images come from the provided Instagram material and are used as realistic placeholders until final logo,
-            product photography, and approved brand assets are ready.
-          </p>
-        </div>
-        <div className="photo-grid">
-          {gallery.map((item) => (
-            <article className="photo-card" key={item.src}>
-              <div className="photo-frame">
-                <Image src={item.src} alt={item.alt} fill sizes="(max-width: 900px) 100vw, 50vw" />
-              </div>
-              <div>
-                <h3>{item.title}</h3>
-                <p>{item.caption}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
       <section className="section menu-section" id="menu">
         <div className="section-heading">
           <p className="eyebrow">Menu</p>
-          <h2>Featured menu structure.</h2>
+          <h2>Real menu, ready to sell.</h2>
           <p>{concept.menuIntro}</p>
         </div>
         <div className="menu-groups">
@@ -157,9 +156,23 @@ export function ConceptSite({ concept, alternate }: Props) {
                   .filter((item) => item.category === group)
                   .map((item) => (
                     <article className="menu-card" key={item.name}>
-                      <div>
-                        <h4>{item.name}</h4>
-                        <p>{item.description}</p>
+                      {item.image ? (
+                        <div className="menu-card-image">
+                          <Image src={item.image} alt={item.imageAlt ?? item.name} fill sizes="(max-width: 900px) 100vw, 50vw" />
+                        </div>
+                      ) : (
+                        <div className="menu-card-image menu-card-image-empty">
+                          <span>Photo coming soon</span>
+                        </div>
+                      )}
+                      <div className="menu-card-copy">
+                        <div>
+                          <h4>{item.name}</h4>
+                          <p>{item.description}</p>
+                        </div>
+                        <a href="#visit" className="menu-order-link">
+                          Add To Order
+                        </a>
                       </div>
                       <div className="menu-meta">
                         <span>{item.price}</span>
@@ -246,10 +259,31 @@ export function ConceptSite({ concept, alternate }: Props) {
         <div className="cta-strip">
           <div>
             <span>Primary CTA</span>
-            <strong>Order Online</strong>
+          <strong>Order Online</strong>
           </div>
           <p>Button destination will connect to the approved ordering link, WhatsApp, or delivery platform.</p>
           <a href="#menu">Browse Menu</a>
+        </div>
+      </section>
+
+      <section className="promo-modal" id="promo" aria-label="Burger meal promotion popup">
+        <a href="#home" className="promo-modal-backdrop" aria-label="Close promotion" />
+        <div className="promo-modal-card" role="dialog" aria-modal="true" aria-labelledby="promo-title">
+          <a href="#home" className="promo-close" aria-label="Close promotion">
+            x
+          </a>
+          <div className="promo-modal-image">
+            <Image src="/images/rollz-smash-menu.png" alt="Rollz smashburger promo poster." fill sizes="(max-width: 700px) 90vw, 460px" />
+          </div>
+          <div className="promo-modal-copy">
+            <p className="eyebrow">{promo.label}</p>
+            <h2 id="promo-title">{promo.title}</h2>
+            <p>{promo.detail}</p>
+            <strong>{promo.priceLine}</strong>
+            <a href="#menu" className="primary-button">
+              Choose A Burger
+            </a>
+          </div>
         </div>
       </section>
 

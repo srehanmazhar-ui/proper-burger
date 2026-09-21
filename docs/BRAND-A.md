@@ -18,4 +18,5 @@ Warm classic burger-joint character using:
 - Cream surfaces, red accents, charcoal text, and tactile card layouts.
 - Fast path to Menu and Ordering Info.
 - Real Instagram-derived menu visuals and pricing references included for presentation.
+- Promo is treated as a campaign module; burger photos are cropped into the menu cards.
 - No invented history, establishment year, final hours, or ordering links.

@@ -26,6 +26,8 @@ Updated: 2026-09-21
 | Done | Polish both routes from rough concept pass into fuller presentable restaurant websites. |
 | Done | Add Rollz Instagram-derived real content for menu, location, and burger launch context. |
 | Done | Add provided Rollz menu/food screenshots as real visual references on both routes. |
+| Done | Convert menu into image-led product cards using cropped burger, chicken, fries, and drink visuals. |
+| Done | Move promo content into a top campaign banner and popup instead of treating it as the menu design. |
 
 ## Current Notes
 
@@ -39,3 +41,4 @@ Updated: 2026-09-21
 - Second pass replaced internal-looking placeholders with client-facing `Coming soon` copy, added grouped menu sections, experience sections, improved visit/order areas, and stronger presentation flow for both concepts.
 - Current content uses provided Instagram screenshots as source material: Rollz Ice Cream & Desserts, 3950 Sage Hill Drive NW, smashburger pricing, meal upgrade, Alberta beef line, loaded fries, chicken items, and Double Smash Fix.
 - Both routes now include a real Rollz smashburger menu poster crop and a chicken/tender food reference crop from the user-provided screenshots. These are presentation placeholders until final approved photography and logo assets are supplied.
+- The latest pass uses cropped food images inside the menu cards, keeps the full promo poster inside a popup, and routes menu/order buttons to live page sections rather than dead links.

@@ -288,10 +288,16 @@ p {
   color: #fff8ed;
 }
 
+.surface-button {
+  border-color: var(--line);
+  color: var(--text);
+}
+
 .quick-panel,
 .section,
 .site-footer,
-.feature-band {
+.feature-band,
+.promo-banner {
   width: min(var(--max), calc(100% - 36px));
   margin-inline: auto;
 }
@@ -319,6 +325,63 @@ p {
 
 .quick-panel div {
   padding: 22px;
+}
+
+.promo-banner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(150px, 0.28fr) minmax(250px, 0.44fr);
+  gap: 1px;
+  overflow: hidden;
+  margin-top: clamp(28px, 4vw, 52px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--line);
+  box-shadow: 0 18px 54px rgba(0, 0, 0, 0.14);
+}
+
+.promo-copy,
+.promo-price,
+.promo-image {
+  background: var(--surface);
+}
+
+.promo-copy {
+  padding: clamp(24px, 4vw, 46px);
+}
+
+.promo-copy h2 {
+  max-width: 8ch;
+}
+
+.promo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.promo-price {
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.promo-price span {
+  color: var(--accent);
+  font-size: clamp(1.4rem, 3vw, 2.8rem);
+  font-weight: 900;
+  line-height: 0.98;
+  text-transform: uppercase;
+}
+
+.promo-image {
+  position: relative;
+  min-height: 280px;
+}
+
+.promo-image img {
+  object-fit: cover;
 }
 
 .quick-panel span,
@@ -463,12 +526,41 @@ p {
 
 .menu-card {
   display: grid;
-  min-height: 188px;
-  grid-template-rows: 1fr auto;
-  gap: 28px;
-  padding: clamp(20px, 3vw, 30px);
+  min-height: 430px;
+  grid-template-rows: 210px 1fr auto;
+  overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius);
+}
+
+.menu-card-image {
+  position: relative;
+  min-height: 210px;
+  background:
+    radial-gradient(circle at 50% 34%, color-mix(in srgb, var(--accent) 24%, transparent), transparent 60%),
+    color-mix(in srgb, var(--surface-strong) 10%, var(--surface));
+}
+
+.menu-card-image img {
+  object-fit: cover;
+}
+
+.menu-card-image-empty {
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.menu-card-image-empty span {
+  color: var(--muted);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.menu-card-copy {
+  display: grid;
+  gap: 18px;
+  padding: clamp(18px, 3vw, 26px);
 }
 
 .menu-card h4 {
@@ -480,6 +572,24 @@ p {
   margin-bottom: 0;
 }
 
+.menu-order-link {
+  display: inline-flex;
+  width: max-content;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--surface-strong);
+  color: var(--button-text);
+  font-size: 0.86rem;
+  font-weight: 900;
+}
+
+.theme-premium .menu-order-link {
+  color: #050505;
+}
+
 .menu-meta {
   display: flex;
   flex-wrap: wrap;
@@ -487,7 +597,7 @@ p {
   align-items: center;
   justify-content: space-between;
   border-top: 1px solid var(--line);
-  padding-top: 18px;
+  padding: 18px clamp(18px, 3vw, 26px);
 }
 
 .menu-meta span {
@@ -701,6 +811,82 @@ p {
   margin: 0;
 }
 
+.promo-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: none;
+  place-items: center;
+  padding: 22px;
+}
+
+.promo-modal:target {
+  display: grid;
+}
+
+.promo-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+}
+
+.promo-modal-card {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: min(920px, 100%);
+  max-height: min(780px, calc(100vh - 44px));
+  grid-template-columns: minmax(280px, 0.95fr) minmax(280px, 1fr);
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.promo-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--surface-strong);
+  color: var(--button-text);
+  font-weight: 900;
+}
+
+.theme-premium .promo-close {
+  color: #050505;
+}
+
+.promo-modal-image {
+  position: relative;
+  min-height: 560px;
+  background: color-mix(in srgb, var(--surface-strong) 10%, var(--surface));
+}
+
+.promo-modal-image img {
+  object-fit: contain;
+}
+
+.promo-modal-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(28px, 5vw, 56px);
+}
+
+.promo-modal-copy strong {
+  margin: 4px 0 22px;
+  color: var(--accent);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  line-height: 1;
+}
+
 @media (max-width: 900px) {
   .site-header {
     grid-template-columns: 1fr auto;
@@ -720,7 +906,12 @@ p {
     cursor: pointer;
     list-style: none;
     border: 1px solid var(--line);
-    background: var(--surface);
+    background: var(--surface-strong);
+    color: var(--button-text);
+  }
+
+  .theme-premium .mobile-nav summary {
+    color: #050505;
   }
 
   .mobile-nav summary::-webkit-details-marker {
@@ -761,6 +952,7 @@ p {
   .quick-panel,
   .intro-section,
   .photo-grid,
+  .promo-banner,
   .menu-grid,
   .feature-band,
   .social-proof,
@@ -771,6 +963,14 @@ p {
 
   .feature-band {
     min-height: auto;
+  }
+
+  .promo-copy h2 {
+    max-width: 11ch;
+  }
+
+  .promo-price {
+    min-height: 140px;
   }
 
   .feature-image {
@@ -789,6 +989,14 @@ p {
   .cta-strip {
     grid-template-columns: 1fr;
     align-items: start;
+  }
+
+  .promo-modal-card {
+    grid-template-columns: 1fr;
+  }
+
+  .promo-modal-image {
+    min-height: 420px;
   }
 
   .site-footer {
@@ -822,13 +1030,22 @@ p {
   .quick-panel,
   .section,
   .social-proof,
-  .site-footer {
+  .site-footer,
+  .promo-banner {
     width: calc(100% - 28px);
   }
 
   .menu-card,
   .contact-grid article {
     min-height: auto;
+  }
+
+  .menu-card {
+    grid-template-rows: 190px 1fr auto;
+  }
+
+  .menu-card-image {
+    min-height: 190px;
   }
 
   .photo-frame,
@@ -844,5 +1061,23 @@ p {
     align-items: flex-start;
     flex-direction: column;
     gap: 6px;
+  }
+
+  .promo-actions .primary-button,
+  .promo-actions .secondary-button,
+  .menu-order-link {
+    width: 100%;
+  }
+
+  .promo-modal {
+    padding: 14px;
+  }
+
+  .promo-modal-card {
+    max-height: calc(100vh - 28px);
+  }
+
+  .promo-modal-image {
+    min-height: 360px;
   }
 }

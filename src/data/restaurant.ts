@@ -3,6 +3,8 @@ export type MenuItem = {
   description: string;
   category: "Burgers" | "Sides" | "Drinks";
   price: string;
+  image?: string;
+  imageAlt?: string;
   tags?: string[];
 };
 
@@ -29,17 +31,29 @@ export type Concept = {
   visitCards: { label: string; value: string; note: string }[];
 };
 
-export type GalleryItem = {
-  src: string;
-  alt: string;
+export type Promo = {
+  label: string;
   title: string;
-  caption: string;
+  detail: string;
+  priceLine: string;
+  image: string;
+  imageAlt: string;
 };
 
 export const confirmationRequired = "CLIENT CONFIRMATION REQUIRED";
 export const publicPending = "Coming soon";
 export const venueName = "Rollz Ice Cream & Desserts";
 export const venueAddress = "3950 Sage Hill Drive NW";
+
+export const promo: Promo = {
+  label: "Burger Launch Promo",
+  title: "Make any burger a meal",
+  detail:
+    "Add fries and a can of pop to any smashburger. Promo source shows add-ons at $0.50 each.",
+  priceLine: "+$3.99 meal upgrade",
+  image: "/images/promo-meal-strip.png",
+  imageAlt: "Rollz burger meal upgrade promo artwork showing the meal deal message."
+};
 
 export const menu: MenuItem[] = [
   {
@@ -48,6 +62,8 @@ export const menu: MenuItem[] = [
       "Fresh smashed beef, cheese, pickles, and a soft toasted bun. Built as the clean entry point to the burger menu.",
     category: "Burgers",
     price: "$6.49",
+    image: "/images/burger-single.png",
+    imageAlt: "Single smashburger with cheese and pickles from the Rollz promo artwork.",
     tags: ["Smashburger", "Beef"]
   },
   {
@@ -56,6 +72,8 @@ export const menu: MenuItem[] = [
       "Two smashed patties with melted cheese, pickles, and a bigger bite for the core burger crowd.",
     category: "Burgers",
     price: "$10.99",
+    image: "/images/burger-double.png",
+    imageAlt: "Double smashburger with cheese and pickles from the Rollz promo artwork.",
     tags: ["Popular", "Beef"]
   },
   {
@@ -64,6 +82,8 @@ export const menu: MenuItem[] = [
       "Three smashed patties stacked with cheese for the most indulgent burger option shown on the Rollz burger promo.",
     category: "Burgers",
     price: "$12.99",
+    image: "/images/burger-triple.png",
+    imageAlt: "Triple smashburger with melted cheese and pickles from the Rollz promo artwork.",
     tags: ["Loaded", "Beef"]
   },
   {
@@ -72,6 +92,8 @@ export const menu: MenuItem[] = [
       "A featured double smash item promoted through Calgary food content. Great candidate for the home page hero callout.",
     category: "Burgers",
     price: "$11.99",
+    image: "/images/burger-double.png",
+    imageAlt: "Double smashburger used as the visual reference for the Double Smash Fix.",
     tags: ["Featured", "Social pick"]
   },
   {
@@ -80,6 +102,8 @@ export const menu: MenuItem[] = [
       "Chicken options referenced by local food coverage, ready to hold tenders, chicken burger, or crispy chicken details.",
     category: "Burgers",
     price: "Confirm",
+    image: "/images/rollz-tender-dip.png",
+    imageAlt: "Chicken tender dipped into sauce at Rollz.",
     tags: ["Chicken"]
   },
   {
@@ -88,6 +112,8 @@ export const menu: MenuItem[] = [
       "Crispy fries positioned as the default side for combos and the base for loaded fries.",
     category: "Sides",
     price: "Confirm",
+    image: "/images/meal-fries-pop.png",
+    imageAlt: "Fries and pop from the Rollz meal promo artwork.",
     tags: ["Side"]
   },
   {
@@ -96,6 +122,8 @@ export const menu: MenuItem[] = [
       "A menu feature mentioned in local coverage, ideal for a photo-led section once final toppings are confirmed.",
     category: "Sides",
     price: "Confirm",
+    image: "/images/rollz-tender-dip.png",
+    imageAlt: "Food close-up from Rollz used as a visual cue for sides and sauces.",
     tags: ["Loaded", "Fries"]
   },
   {
@@ -104,6 +132,8 @@ export const menu: MenuItem[] = [
       "Add fries and a can of pop to any burger. Rollz promo copy lists add-ons at $0.50 each.",
     category: "Sides",
     price: "+$3.99",
+    image: "/images/meal-fries-pop.png",
+    imageAlt: "Fries and can pop meal upgrade from the Rollz promo artwork.",
     tags: ["Combo", "Fries + pop"]
   },
   {
@@ -120,24 +150,9 @@ export const menu: MenuItem[] = [
       "Included in the meal upgrade and available as the simple drink pairing for burgers and fries.",
     category: "Drinks",
     price: "Confirm",
+    image: "/images/meal-fries-pop.png",
+    imageAlt: "Can pop shown with fries in the Rollz meal promo artwork.",
     tags: ["Combo drink"]
-  }
-];
-
-export const gallery: GalleryItem[] = [
-  {
-    src: "/images/rollz-smash-menu.png",
-    alt: "Rollz smashburger menu poster with Single Smash, Double Smash, Triple Smash, meal upgrade, and Sage Hill address.",
-    title: "Actual smashburger promo",
-    caption:
-      "Real Rollz menu artwork showing Single Smash, Double Smash, Triple Smash, Alberta beef message, meal upgrade, and Sage Hill address."
-  },
-  {
-    src: "/images/rollz-tender-dip.png",
-    alt: "A chicken tender dipped into sauce at Rollz.",
-    title: "Chicken and sauce cue",
-    caption:
-      "Food-content reference for the chicken/tenders side of the menu, with a close-up sauce dip."
   }
 ];
 
