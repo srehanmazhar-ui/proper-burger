@@ -23,6 +23,7 @@ Updated: 2026-09-21
 | Blocked | Push local commit to GitHub via machine Git credentials. |
 | Done | Deploy to Vercel from local project files. |
 | Blocked | Connect Vercel project to private GitHub repository from Vercel account. |
+| Done | Polish both routes from rough concept pass into fuller presentable restaurant websites. |
 
 ## Current Notes
 
@@ -33,3 +34,4 @@ Updated: 2026-09-21
 - Production deployment is live at `https://proper-burger.vercel.app`.
 - GitHub push is blocked locally by missing Windows Git credentials for `https://github.com/srehanmazhar-ui/proper-burger.git`.
 - Vercel GitHub integration could not connect the private repository during deployment, but the local-file deployment completed successfully.
+- Second pass replaced internal-looking placeholders with client-facing `Coming soon` copy, added grouped menu sections, experience sections, improved visit/order areas, and stronger presentation flow for both concepts.

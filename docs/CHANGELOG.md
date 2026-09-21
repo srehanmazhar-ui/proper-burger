@@ -17,3 +17,4 @@
 - Disabled unwanted dev-server agent file generation in `next.config.mjs`.
 - Deployed production site to Vercel at `https://proper-burger.vercel.app`.
 - Recorded GitHub push and Vercel GitHub-link blockers.
+- Polished both concept routes into more complete presentable restaurant websites with grouped menu sections, experience highlights, improved visit/order blocks, and cleaner public placeholder copy.
