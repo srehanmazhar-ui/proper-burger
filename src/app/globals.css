@@ -498,6 +498,39 @@ p {
   font-weight: 800;
 }
 
+.social-proof {
+  display: grid;
+  width: min(var(--max), calc(100% - 36px));
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  overflow: hidden;
+  margin: clamp(64px, 8vw, 100px) auto 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--line);
+}
+
+.social-proof div {
+  min-height: 180px;
+  padding: 24px;
+  background: color-mix(in srgb, var(--surface-strong) 8%, var(--surface));
+}
+
+.social-proof span {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.social-proof strong {
+  display: block;
+  font-size: clamp(1.15rem, 1.8vw, 1.55rem);
+  line-height: 1.22;
+}
+
 .story-section {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 360px;
@@ -680,6 +713,7 @@ p {
   .intro-section,
   .menu-grid,
   .feature-band,
+  .social-proof,
   .story-section,
   .contact-grid {
     grid-template-columns: 1fr;
@@ -732,6 +766,7 @@ p {
 
   .quick-panel,
   .section,
+  .social-proof,
   .site-footer {
     width: calc(100% - 28px);
   }

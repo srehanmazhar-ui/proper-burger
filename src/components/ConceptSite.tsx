@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Concept, menu, publicPending } from "@/data/restaurant";
+import { Concept, menu, publicPending, venueAddress, venueName } from "@/data/restaurant";
 
 type Props = {
   concept: Concept;
@@ -84,12 +84,12 @@ export function ConceptSite({ concept, alternate }: Props) {
 
       <section className="quick-panel" aria-label="Concept summary">
         <div>
-          <span>Concept</span>
-          <strong>{concept.label}</strong>
+          <span>Location</span>
+          <strong>{venueAddress}</strong>
         </div>
         <div>
-          <span>Menu Status</span>
-          <strong>Ready for final items</strong>
+          <span>Venue</span>
+          <strong>{venueName}</strong>
         </div>
         <div>
           <span>Ordering</span>
@@ -99,8 +99,12 @@ export function ConceptSite({ concept, alternate }: Props) {
 
       <section className="section intro-section" aria-label="Website overview">
         <div className="intro-copy">
-          <p className="eyebrow">Built To Present</p>
-          <h2>A complete first website experience, ready for real content.</h2>
+          <p className="eyebrow">Real Menu Context</p>
+          <h2>Built from the Rollz burger launch, ready for client polish.</h2>
+          <p>
+            The burger concept sits inside the existing Rollz Ice Cream & Desserts location in Sage Hill, pairing smashburgers,
+            fries, chicken items, and dessert traffic in one casual food stop.
+          </p>
         </div>
         <div className="intro-grid">
           {concept.highlights.map((highlight) => (
@@ -122,7 +126,7 @@ export function ConceptSite({ concept, alternate }: Props) {
             <section className="menu-group" key={group} aria-label={group}>
               <div className="menu-group-heading">
                 <h3>{group}</h3>
-                <span>Prices {publicPending.toLowerCase()}</span>
+                <span>{group === "Burgers" ? "Featured prices" : "Confirm final price"}</span>
               </div>
               <div className="menu-grid">
                 {menu
@@ -134,7 +138,7 @@ export function ConceptSite({ concept, alternate }: Props) {
                         <p>{item.description}</p>
                       </div>
                       <div className="menu-meta">
-                        <span>{publicPending}</span>
+                        <span>{item.price}</span>
                         <small>{item.tags?.join(" / ")}</small>
                       </div>
                     </article>
@@ -167,6 +171,21 @@ export function ConceptSite({ concept, alternate }: Props) {
               <span key={note}>{note}</span>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="social-proof" aria-label="Instagram menu proof points">
+        <div>
+          <span>From Rollz Instagram</span>
+          <strong>Fresh, never-frozen locally sourced Alberta beef, smashed fresh to order.</strong>
+        </div>
+        <div>
+          <span>Combo Hook</span>
+          <strong>Make any burger a meal for $3.99 with fries and a can pop.</strong>
+        </div>
+        <div>
+          <span>Food Coverage</span>
+          <strong>Burgers, tenders, loaded fries, and Double Smash Fix were highlighted by Calgary food content.</strong>
         </div>
       </section>
 
