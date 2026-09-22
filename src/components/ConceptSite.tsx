@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Concept, menu, promo, publicPending, venueAddress, venueName } from "@/data/restaurant";
+import { Concept, instagramUrl, mapsUrl, menu, promo, venueAddress, venueName } from "@/data/restaurant";
 
 type Props = {
   concept: Concept;
@@ -15,9 +15,11 @@ const navItems = [
   { href: "#visit", label: "Visit" }
 ];
 
-const menuGroups = ["Burgers", "Sides", "Drinks"] as const;
-
 export function ConceptSite({ concept, alternate }: Props) {
+  const burgers = menu.filter((item) => item.category === "Burgers");
+  const chicken = menu.find((item) => item.category === "Chicken");
+  const sidesAndDrinks = menu.filter((item) => item.category === "Sides" || item.category === "Drinks");
+
   return (
     <main className={`site theme-${concept.id}`}>
       <header className="site-header">
@@ -94,7 +96,7 @@ export function ConceptSite({ concept, alternate }: Props) {
         </div>
         <div>
           <span>Ordering</span>
-          <strong>{publicPending}</strong>
+          <strong>Visit us in store</strong>
         </div>
       </section>
 
@@ -122,11 +124,10 @@ export function ConceptSite({ concept, alternate }: Props) {
 
       <section className="section intro-section" aria-label="Website overview">
         <div className="intro-copy">
-          <p className="eyebrow">Real Menu Context</p>
-          <h2>Built from the Rollz burger launch, ready for client polish.</h2>
+          <p className="eyebrow">Burgers Meet Dessert</p>
+          <h2>A proper smashburger stop inside Rollz.</h2>
           <p>
-            The burger concept sits inside the existing Rollz Ice Cream & Desserts location in Sage Hill, pairing smashburgers,
-            fries, chicken items, and dessert traffic in one casual food stop.
+            One stop for smashed beef, crispy chicken, loaded fries, cold drinks, and the Rollz desserts Calgary already knows.
           </p>
         </div>
         <div className="intro-grid">
@@ -140,49 +141,61 @@ export function ConceptSite({ concept, alternate }: Props) {
 
       <section className="section menu-section" id="menu">
         <div className="section-heading">
-          <p className="eyebrow">Menu</p>
-          <h2>Real menu, ready to sell.</h2>
+          <p className="eyebrow">The Lineup</p>
+          <h2>Pick your smash.</h2>
           <p>{concept.menuIntro}</p>
         </div>
-        <div className="menu-groups">
-          {menuGroups.map((group) => (
-            <section className="menu-group" key={group} aria-label={group}>
-              <div className="menu-group-heading">
-                <h3>{group}</h3>
-                <span>{group === "Burgers" ? "Featured prices" : "Confirm final price"}</span>
+        <div className="burger-lineup" aria-label="Smashburgers">
+          {burgers.map((item, index) => (
+            <article className={`burger-card burger-card-${index + 1}`} key={item.name}>
+              <div className="burger-visual">
+                <Image src={item.image!} alt={item.imageAlt ?? item.name} fill sizes="(max-width: 900px) 92vw, 32vw" />
+                <span className="burger-count">{index + 1}</span>
               </div>
-              <div className="menu-grid">
-                {menu
-                  .filter((item) => item.category === group)
-                  .map((item) => (
-                    <article className="menu-card" key={item.name}>
-                      {item.image ? (
-                        <div className="menu-card-image">
-                          <Image src={item.image} alt={item.imageAlt ?? item.name} fill sizes="(max-width: 900px) 100vw, 50vw" />
-                        </div>
-                      ) : (
-                        <div className="menu-card-image menu-card-image-empty">
-                          <span>Photo coming soon</span>
-                        </div>
-                      )}
-                      <div className="menu-card-copy">
-                        <div>
-                          <h4>{item.name}</h4>
-                          <p>{item.description}</p>
-                        </div>
-                        <a href="#visit" className="menu-order-link">
-                          Add To Order
-                        </a>
-                      </div>
-                      <div className="menu-meta">
-                        <span>{item.price}</span>
-                        <small>{item.tags?.join(" / ")}</small>
-                      </div>
-                    </article>
-                  ))}
+              <div className="burger-copy">
+                <div>
+                  <p className="menu-kicker">{item.tags?.[0]}</p>
+                  <h3>{item.name}</h3>
+                </div>
+                <strong className="burger-price">{item.price}</strong>
+                <p>{item.description}</p>
               </div>
-            </section>
+            </article>
           ))}
+        </div>
+
+        <div className="menu-supporting">
+          {chicken && (
+            <article className="chicken-feature">
+              <div className="chicken-image">
+                <Image src={chicken.image!} alt={chicken.imageAlt ?? chicken.name} fill sizes="(max-width: 900px) 100vw, 52vw" />
+              </div>
+              <div className="chicken-copy">
+                <p className="eyebrow">Crispy Side Of The Menu</p>
+                <h3>{chicken.name}</h3>
+                <p>{chicken.description}</p>
+                <a href={instagramUrl} target="_blank" rel="noreferrer" className="text-link">
+                  See today&apos;s menu on Instagram
+                </a>
+              </div>
+            </article>
+          )}
+
+          <section className="menu-list" aria-label="Sides and drinks">
+            <div className="menu-list-heading">
+              <p className="eyebrow">Finish The Order</p>
+              <h3>Sides &amp; sips</h3>
+            </div>
+            {sidesAndDrinks.map((item) => (
+              <article className="menu-list-row" key={item.name}>
+                <div>
+                  <h4>{item.name}</h4>
+                  <p>{item.description}</p>
+                </div>
+                {item.price && <strong>{item.price}</strong>}
+              </article>
+            ))}
+          </section>
         </div>
       </section>
 
@@ -197,11 +210,11 @@ export function ConceptSite({ concept, alternate }: Props) {
         </div>
         <div className="feature-copy">
           <p className="eyebrow">Experience</p>
-          <h2>{concept.id === "classic" ? "Easy, warm, unmistakably burger-first." : "Refined, darker, and built around the storefront."}</h2>
+          <h2>{concept.id === "classic" ? "Easy, warm, unmistakably burger-first." : "Smashed hard. Stacked properly."}</h2>
           <p>
             {concept.id === "classic"
-              ? "This version feels like a familiar burger counter: generous spacing, bold calls to action, and a menu that works well for families, walk-ins, and delivery traffic."
-              : "This version slows the pace slightly and makes the brand feel more elevated, with strong contrast, restrained cards, and a premium storefront mood."}
+              ? "A familiar burger-counter experience built for easy choices: pick your smash, add fries and a cold drink, then finish with a Rollz dessert."
+              : "Fresh Alberta beef hits the grill, gets pressed for crisp edges, and is stacked with melted cheese and pickles on a soft toasted bun."}
           </p>
           <div className="feature-points">
             {concept.toneNotes.map((note) => (
@@ -213,7 +226,7 @@ export function ConceptSite({ concept, alternate }: Props) {
 
       <section className="social-proof" aria-label="Instagram menu proof points">
         <div>
-          <span>From Rollz Instagram</span>
+          <span>The Beef</span>
           <strong>Fresh, never-frozen locally sourced Alberta beef, smashed fresh to order.</strong>
         </div>
         <div>
@@ -221,14 +234,14 @@ export function ConceptSite({ concept, alternate }: Props) {
           <strong>Make any burger a meal for $3.99 with fries and a can pop.</strong>
         </div>
         <div>
-          <span>Food Coverage</span>
-          <strong>Burgers, tenders, loaded fries, and Double Smash Fix were highlighted by Calgary food content.</strong>
+          <span>Find Us</span>
+          <strong>Proper Burger is served inside Rollz Ice Cream &amp; Desserts in Sage Hill.</strong>
         </div>
       </section>
 
       <section className="section story-section" id="story">
         <div className="story-copy">
-          <p className="eyebrow">Story / About</p>
+          <p className="eyebrow">Our Story</p>
           <h2>{concept.storyTitle}</h2>
           {concept.story.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
@@ -244,7 +257,7 @@ export function ConceptSite({ concept, alternate }: Props) {
       <section className="section contact-section" id="visit">
         <div className="section-heading">
           <p className="eyebrow">Visit / Order</p>
-          <h2>Ready for launch details.</h2>
+          <h2>Find us at Sage Hill.</h2>
           <p>{concept.locationNote}</p>
         </div>
         <div className="contact-grid">
@@ -258,11 +271,14 @@ export function ConceptSite({ concept, alternate }: Props) {
         </div>
         <div className="cta-strip">
           <div>
-            <span>Primary CTA</span>
-          <strong>Order Online</strong>
+            <span>Proper Burger</span>
+            <strong>Ready when you are.</strong>
           </div>
-          <p>Button destination will connect to the approved ordering link, WhatsApp, or delivery platform.</p>
-          <a href="#menu">Browse Menu</a>
+          <p>Visit Rollz Sage Hill for the burger menu, or follow Instagram for the latest updates.</p>
+          <div className="cta-actions">
+            <a href={mapsUrl} target="_blank" rel="noreferrer">Get Directions</a>
+            <a href={instagramUrl} target="_blank" rel="noreferrer">Instagram</a>
+          </div>
         </div>
       </section>
 
@@ -271,7 +287,7 @@ export function ConceptSite({ concept, alternate }: Props) {
           <strong>{concept.name}</strong>
           <span>{concept.label}</span>
         </div>
-        <p>Menu prices, locations, hours, and ordering links are ready to be added after approval.</p>
+        <p>Smashburgers, crispy sides, and Rollz desserts at Sage Hill.</p>
       </footer>
     </main>
   );

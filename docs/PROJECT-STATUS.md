@@ -1,6 +1,6 @@
 # Project Status
 
-Updated: 2026-09-21
+Updated: 2026-09-22
 
 ## Task Board
 
@@ -29,6 +29,11 @@ Updated: 2026-09-21
 | Done | Convert menu into image-led product cards using cropped burger, chicken, fries, and drink visuals. |
 | Done | Move promo content into a top campaign banner and popup instead of treating it as the menu design. |
 | Done | Refine header, promo, menu-card image handling, and premium/classic contrast after visual QA feedback. |
+| Done | Extract clean transparent burger and meal cutouts from the supplied menu imagery. |
+| Done | Replace repeated menu cards with a responsive three-burger product lineup and supporting menu sections. |
+| Done | Remove internal design/approval language and dead ordering actions from client-facing pages. |
+| Done | Re-run production build and desktop/mobile visual QA for both concepts. |
+| Blocked | Publish the latest revision to Vercel until the connected account is authorized. |
 
 ## Current Notes
 
@@ -41,6 +46,7 @@ Updated: 2026-09-21
 - Vercel GitHub integration could not connect the private repository during deployment, but the local-file deployment completed successfully.
 - Second pass replaced internal-looking placeholders with client-facing `Coming soon` copy, added grouped menu sections, experience sections, improved visit/order areas, and stronger presentation flow for both concepts.
 - Current content uses provided Instagram screenshots as source material: Rollz Ice Cream & Desserts, 3950 Sage Hill Drive NW, smashburger pricing, meal upgrade, Alberta beef line, loaded fries, chicken items, and Double Smash Fix.
-- Both routes now include a real Rollz smashburger menu poster crop and a chicken/tender food reference crop from the user-provided screenshots. These are presentation placeholders until final approved photography and logo assets are supplied.
-- The latest pass uses cropped food images inside the menu cards, keeps the full promo poster inside a popup, and routes menu/order buttons to live page sections rather than dead links.
-- Follow-up polish removed the awkward popup, made the promo a contained top campaign banner, forced food images to render as contained product-style visuals, and fixed dark-theme contrast.
+- Both routes now use clean transparent burger and meal assets derived from the supplied menu imagery, plus the supplied chicken/tender reference photo.
+- The menu presents Single, Double, and Triple Smash as a deliberate product lineup instead of generic repeated cards or enlarged poster crops.
+- The promo is a contained campaign section, menu imagery remains fully visible on desktop and mobile, and all visible actions lead to a real page section, map search, or the Rollz Instagram profile.
+- The latest local revision is presentation-ready; the public Vercel URL will continue showing the earlier deployment until account authorization is restored and a new production deploy succeeds.

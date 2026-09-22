@@ -15,3 +15,10 @@
 - Place individual burger/food crops directly inside the menu cards and reserve the original promo artwork for a campaign banner/popup, because that reads more like a real restaurant website.
 - Wire CTAs to in-page sections until the client confirms an ordering URL, phone number, WhatsApp link, or delivery platform.
 - Use a top-page campaign banner instead of a popup because the available poster crop does not look premium enough when enlarged.
+
+## 2026-09-22
+
+- Preserve the supplied food photography as the source of truth while extracting clean transparent product cutouts for menu presentation.
+- Give the three priced smashburgers a dedicated product lineup; use the chicken photo as an editorial feature and keep unconfirmed sides text-led.
+- Omit unknown public prices and operational details from the page instead of exposing internal confirmation language to customers.
+- Use the verified Rollz Instagram profile and a Google Maps search for the known Sage Hill address as the only external actions until ordering details are confirmed.

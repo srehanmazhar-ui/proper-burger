@@ -1,7 +1,7 @@
 export type MenuItem = {
   name: string;
   description: string;
-  category: "Burgers" | "Sides" | "Drinks";
+  category: "Burgers" | "Chicken" | "Sides" | "Drinks";
   price: string;
   image?: string;
   imageAlt?: string;
@@ -44,15 +44,18 @@ export const confirmationRequired = "CLIENT CONFIRMATION REQUIRED";
 export const publicPending = "Coming soon";
 export const venueName = "Rollz Ice Cream & Desserts";
 export const venueAddress = "3950 Sage Hill Drive NW";
+export const instagramUrl = "https://www.instagram.com/rollzicecreamcalgary/?hl=en";
+export const mapsUrl =
+  "https://www.google.com/maps/search/?api=1&query=3950%20Sage%20Hill%20Drive%20NW%20Calgary";
 
 export const promo: Promo = {
-  label: "Burger Launch Promo",
+  label: "Meal Upgrade",
   title: "Make It A Meal",
   detail:
-    "Add fries and a can of pop to any smashburger. A simple upsell that makes the burger launch feel complete.",
+    "Add hot fries and a can of pop to any smashburger for the full Proper Burger meal.",
   priceLine: "+$3.99",
-  image: "/images/meal-fries-pop.png",
-  imageAlt: "Fries and a can pop from the Rollz burger meal promo artwork."
+  image: "/images/meal-combo-cutout.png",
+  imageAlt: "Fries and a can of pop for the burger meal upgrade."
 };
 
 export const menu: MenuItem[] = [
@@ -62,8 +65,8 @@ export const menu: MenuItem[] = [
       "Fresh smashed beef, cheese, pickles, and a soft toasted bun. Built as the clean entry point to the burger menu.",
     category: "Burgers",
     price: "$6.49",
-    image: "/images/burger-single.png",
-    imageAlt: "Single smashburger with cheese and pickles from the Rollz promo artwork.",
+    image: "/images/burger-single-cutout.png",
+    imageAlt: "Single smashburger with cheese and pickles.",
     tags: ["Smashburger", "Beef"]
   },
   {
@@ -72,8 +75,8 @@ export const menu: MenuItem[] = [
       "Two smashed patties with melted cheese, pickles, and a bigger bite for the core burger crowd.",
     category: "Burgers",
     price: "$10.99",
-    image: "/images/burger-double.png",
-    imageAlt: "Double smashburger with cheese and pickles from the Rollz promo artwork.",
+    image: "/images/burger-double-cutout.png",
+    imageAlt: "Double smashburger with cheese and pickles.",
     tags: ["Popular", "Beef"]
   },
   {
@@ -82,26 +85,16 @@ export const menu: MenuItem[] = [
       "Three smashed patties stacked with cheese for the most indulgent burger option shown on the Rollz burger promo.",
     category: "Burgers",
     price: "$12.99",
-    image: "/images/burger-triple.png",
-    imageAlt: "Triple smashburger with melted cheese and pickles from the Rollz promo artwork.",
+    image: "/images/burger-triple-cutout.png",
+    imageAlt: "Triple smashburger with melted cheese and pickles.",
     tags: ["Loaded", "Beef"]
   },
   {
-    name: "Double Smash Fix",
+    name: "Crispy Chicken",
     description:
-      "A featured double smash item promoted through Calgary food content. Great candidate for the home page hero callout.",
-    category: "Burgers",
-    price: "$11.99",
-    image: "/images/burger-double.png",
-    imageAlt: "Double smashburger used as the visual reference for the Double Smash Fix.",
-    tags: ["Featured", "Social pick"]
-  },
-  {
-    name: "Chicken Items",
-    description:
-      "Chicken options referenced by local food coverage, ready to hold tenders, chicken burger, or crispy chicken details.",
-    category: "Burgers",
-    price: "Confirm",
+      "Golden, crispy chicken served with a creamy dipping sauce. Ask in store for today's chicken selection.",
+    category: "Chicken",
+    price: "",
     image: "/images/rollz-tender-dip.png",
     imageAlt: "Chicken tender dipped into sauce at Rollz.",
     tags: ["Chicken"]
@@ -109,49 +102,43 @@ export const menu: MenuItem[] = [
   {
     name: "Fries",
     description:
-      "Crispy fries positioned as the default side for combos and the base for loaded fries.",
+      "Hot, golden fries ready to stand beside any smashburger.",
     category: "Sides",
-    price: "Confirm",
-    image: "/images/meal-fries-pop.png",
-    imageAlt: "Fries and pop from the Rollz meal promo artwork.",
+    price: "",
     tags: ["Side"]
   },
   {
     name: "Loaded Fries",
     description:
-      "A menu feature mentioned in local coverage, ideal for a photo-led section once final toppings are confirmed.",
+      "A loaded take on the classic side. Ask in store for today's build.",
     category: "Sides",
-    price: "Confirm",
-    image: "/images/rollz-tender-dip.png",
-    imageAlt: "Food close-up from Rollz used as a visual cue for sides and sauces.",
+    price: "",
     tags: ["Loaded", "Fries"]
   },
   {
     name: "Make It A Meal",
     description:
-      "Add fries and a can of pop to any burger. Rollz promo copy lists add-ons at $0.50 each.",
+      "Add fries and a can of pop to any smashburger.",
     category: "Sides",
     price: "+$3.99",
-    image: "/images/meal-fries-pop.png",
-    imageAlt: "Fries and can pop meal upgrade from the Rollz promo artwork.",
+    image: "/images/meal-combo-cutout.png",
+    imageAlt: "Fries and a can of pop for the meal upgrade.",
     tags: ["Combo", "Fries + pop"]
   },
   {
     name: "Shakes",
     description:
-      "Dessert drinks can connect the burger concept back to the existing Rollz ice cream audience.",
+      "Pair your burger with a cold dessert drink from Rollz.",
     category: "Drinks",
-    price: "Confirm",
+    price: "",
     tags: ["Dessert"]
   },
   {
     name: "Can Pop",
     description:
-      "Included in the meal upgrade and available as the simple drink pairing for burgers and fries.",
+      "The classic cold drink pairing for burgers and fries.",
     category: "Drinks",
-    price: "Confirm",
-    image: "/images/meal-fries-pop.png",
-    imageAlt: "Can pop shown with fries in the Rollz meal promo artwork.",
+    price: "",
     tags: ["Combo drink"]
   }
 ];
@@ -163,29 +150,29 @@ export const concepts: Record<"classic" | "premium", Concept> = {
     name: "Proper Burger",
     label: "Classic Burger Joint",
     switchLabel: "View Premium",
-    eyebrow: "Approved Direction A",
+    eyebrow: "Sage Hill / Calgary",
     headline: "Smashburgers at Rollz",
     intro:
-      "A warm burger-joint concept for Rollz Ice Cream & Desserts: fresh smashburgers, loaded fries, chicken items, and a simple meal upgrade built for walk-in traffic.",
+      "Fresh smashburgers, loaded fries, crispy chicken, and an easy meal upgrade, served inside Rollz Ice Cream & Desserts.",
     image: "/images/classic-hero.png",
     imageAlt:
       "Classic burger joint counter with a burger and fries on a tray.",
     orderCta: confirmationRequired,
-    heroNote: `Now framed around ${venueName} at ${venueAddress}. Final ordering link and hours can drop in before launch.`,
+    heroNote: `Find us inside ${venueName} at ${venueAddress}.`,
     palette: ["#B22222", "#F7EAD9", "#1A1A1A"],
     menuIntro:
-      "Built from the Rollz Instagram burger posts. Promo-sensitive items can be adjusted once the client confirms the final permanent menu.",
+      "Fresh smashburgers, crispy sides, and an easy meal upgrade, served at Rollz Sage Hill.",
     storyTitle: "Made To Feel Proper",
     story: [
-      "This direction makes the burger concept feel like a natural extension of Rollz: ice cream energy, counter-service speed, and bold smashburger appetite.",
-      "The red and cream system supports the actual menu content: Single Smash, Double Smash, Triple Smash, loaded fries, chicken items, and meal upgrades."
+      "Proper Burger brings hot, crispy-edged smashburgers to the Rollz counter, making it easy to pair a savoury meal with the desserts Calgary already knows.",
+      "Choose a Single, Double, or Triple Smash, add fries and a cold drink, then save room for something sweet."
     ],
     locationNote:
-      "The Sage Hill location is ready to show. Final hours, phone/WhatsApp, and ordering link can be added once approved.",
+      "Find Proper Burger inside Rollz Ice Cream & Desserts at the Sage Hill location.",
     toneNotes: [
-      "Warm classic burger-joint character",
-      "Smashburger pricing front and center",
-      "Rollz location context included"
+      "Smashed fresh to order",
+      "Locally sourced Alberta beef",
+      "Burgers and dessert in one stop"
     ],
     highlights: [
       "Single Smash $6.49",
@@ -206,8 +193,8 @@ export const concepts: Record<"classic" | "premium", Concept> = {
       },
       {
         label: "Order",
-        value: publicPending,
-        note: "Ordering link, phone, or delivery platform still needs client confirmation."
+        value: "Visit in store",
+        note: "Follow Rollz Calgary on Instagram for the latest menu updates."
       }
     ]
   },
@@ -217,33 +204,33 @@ export const concepts: Record<"classic" | "premium", Concept> = {
     name: "Proper Burger",
     label: "Premium Black",
     switchLabel: "View Classic",
-    eyebrow: "Approved Direction B",
+    eyebrow: "Sage Hill / Calgary",
     headline: "The Smash Fix",
     intro:
-      "A sharper storefront-led concept for the same Rollz burger launch: Alberta beef, Double Smash Fix, loaded fries, chicken items, and a premium black presentation.",
+      "Smashed Alberta beef, melted cheese, crisp pickles, loaded sides, and cold drinks, served at Rollz Sage Hill.",
     image: "/images/premium-hero.png",
     imageAlt:
       "Premium dark restaurant storefront at dusk with warm interior lighting.",
     orderCta: confirmationRequired,
-    heroNote: "Uses the real Rollz Sage Hill location and social menu cues while leaving logo, final hours, and ordering link open.",
+    heroNote: `Proper Burger is served inside ${venueName} at ${venueAddress}.`,
     palette: ["#050505", "#171717", "#F5F2EC", "#8D949B"],
     menuIntro:
-      "Uses the same real burger content, styled with a more premium rhythm for a client-facing alternative.",
+      "A focused lineup of smashed Alberta beef, crisp chicken, loaded sides, and classic cold drinks.",
     storyTitle: "A Sharper Storefront Presence",
     story: [
-      "This direction treats the burger offer as a more premium add-on inside Rollz Ice Cream & Desserts, with the storefront and food photography doing more of the selling.",
-      "Dark surfaces, steel-grey detail, and cinematic spacing make Double Smash Fix, loaded fries, chicken items, and Alberta beef feel more elevated."
+      "Proper Burger starts with fresh Alberta beef, smashed on the grill for crisp edges and stacked with melted cheese and pickles.",
+      "It all comes together at Rollz Sage Hill, where burgers, fries, crispy chicken, cold drinks, and signature desserts share one counter."
     ],
     locationNote:
-      "The Rollz Sage Hill storefront is confirmed. Hours, delivery radius, and final ordering path still need approval.",
+      "Visit the Rollz Sage Hill storefront for the Proper Burger menu and current availability.",
     toneNotes: [
-      "Premium modern cinematic look",
-      "Alberta beef message highlighted",
-      "Black identity preserved"
+      "Fresh Alberta beef",
+      "Crispy smashed edges",
+      "Built for the full meal"
     ],
     highlights: [
       "Fresh Alberta beef",
-      "Double Smash Fix $11.99",
+      "Double Smash $10.99",
       "Loaded fries + chicken",
       "Sage Hill location"
     ],
@@ -260,8 +247,8 @@ export const concepts: Record<"classic" | "premium", Concept> = {
       },
       {
         label: "Reserve / Order",
-        value: publicPending,
-        note: "Final CTA can route to ordering, WhatsApp, or delivery."
+        value: "Visit in store",
+        note: "Follow Rollz Calgary on Instagram for the latest menu updates."
       }
     ]
   }

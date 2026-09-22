@@ -22,3 +22,12 @@
 - Added real visual reference crops from the provided screenshots to both `/classic` and `/premium`.
 - Reworked the promo into a campaign banner plus popup, and redesigned the menu as image-led product cards with working in-page CTAs.
 - Removed the awkward promo popup, fixed premium/classic contrast, strengthened the header, and changed menu/promo images to contained product-style visuals.
+
+## 2026-09-22
+
+- Created high-resolution transparent product cutouts for the Single, Double, and Triple Smash and meal upgrade using the supplied menu imagery as reference.
+- Rebuilt both menus around a responsive three-burger lineup with deliberate product scale, pricing hierarchy, and mobile behavior.
+- Added a full-width crispy chicken feature and a restrained sides-and-drinks list without misusing unrelated photos.
+- Replaced internal concept, confirmation, and placeholder copy with customer-facing restaurant language.
+- Connected directions and Instagram actions to real destinations while keeping unconfirmed online ordering details out of the public interface.
+- Passed a fresh production build and visually verified Classic and Premium layouts at desktop and 390px mobile widths.
