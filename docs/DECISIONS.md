@@ -14,3 +14,4 @@
 - Treat Instagram-listed menu prices and address as sourced presentation content that still needs final client confirmation before launch.
 - Place individual burger/food crops directly inside the menu cards and reserve the original promo artwork for a campaign banner/popup, because that reads more like a real restaurant website.
 - Wire CTAs to in-page sections until the client confirms an ordering URL, phone number, WhatsApp link, or delivery platform.
+- Use a top-page campaign banner instead of a popup because the available poster crop does not look premium enough when enlarged.

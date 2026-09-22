@@ -21,3 +21,4 @@
 - Added real Rollz Instagram-derived content: Sage Hill location, smashburger prices, Double Smash Fix, meal add-on, Alberta beef line, loaded fries, and chicken item references.
 - Added real visual reference crops from the provided screenshots to both `/classic` and `/premium`.
 - Reworked the promo into a campaign banner plus popup, and redesigned the menu as image-led product cards with working in-page CTAs.
+- Removed the awkward promo popup, fixed premium/classic contrast, strengthened the header, and changed menu/promo images to contained product-style visuals.

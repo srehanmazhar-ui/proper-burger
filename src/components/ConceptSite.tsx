@@ -104,7 +104,7 @@ export function ConceptSite({ concept, alternate }: Props) {
           <h2>{promo.title}</h2>
           <p>{promo.detail}</p>
           <div className="promo-actions">
-            <a href="#promo" className="primary-button">
+            <a href="#menu" className="primary-button">
               View Deal
             </a>
             <a href="#menu" className="secondary-button surface-button">
@@ -263,27 +263,6 @@ export function ConceptSite({ concept, alternate }: Props) {
           </div>
           <p>Button destination will connect to the approved ordering link, WhatsApp, or delivery platform.</p>
           <a href="#menu">Browse Menu</a>
-        </div>
-      </section>
-
-      <section className="promo-modal" id="promo" aria-label="Burger meal promotion popup">
-        <a href="#home" className="promo-modal-backdrop" aria-label="Close promotion" />
-        <div className="promo-modal-card" role="dialog" aria-modal="true" aria-labelledby="promo-title">
-          <a href="#home" className="promo-close" aria-label="Close promotion">
-            x
-          </a>
-          <div className="promo-modal-image">
-            <Image src="/images/rollz-smash-menu.png" alt="Rollz smashburger promo poster." fill sizes="(max-width: 700px) 90vw, 460px" />
-          </div>
-          <div className="promo-modal-copy">
-            <p className="eyebrow">{promo.label}</p>
-            <h2 id="promo-title">{promo.title}</h2>
-            <p>{promo.detail}</p>
-            <strong>{promo.priceLine}</strong>
-            <a href="#menu" className="primary-button">
-              Choose A Burger
-            </a>
-          </div>
         </div>
       </section>
 

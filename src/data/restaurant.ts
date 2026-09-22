@@ -47,12 +47,12 @@ export const venueAddress = "3950 Sage Hill Drive NW";
 
 export const promo: Promo = {
   label: "Burger Launch Promo",
-  title: "Make any burger a meal",
+  title: "Make It A Meal",
   detail:
-    "Add fries and a can of pop to any smashburger. Promo source shows add-ons at $0.50 each.",
-  priceLine: "+$3.99 meal upgrade",
-  image: "/images/promo-meal-strip.png",
-  imageAlt: "Rollz burger meal upgrade promo artwork showing the meal deal message."
+    "Add fries and a can of pop to any smashburger. A simple upsell that makes the burger launch feel complete.",
+  priceLine: "+$3.99",
+  image: "/images/meal-fries-pop.png",
+  imageAlt: "Fries and a can pop from the Rollz burger meal promo artwork."
 };
 
 export const menu: MenuItem[] = [
