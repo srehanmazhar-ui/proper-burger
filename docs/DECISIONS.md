@@ -22,3 +22,5 @@
 - Give the three priced smashburgers a dedicated product lineup; use the chicken photo as an editorial feature and keep unconfirmed sides text-led.
 - Omit unknown public prices and operational details from the page instead of exposing internal confirmation language to customers.
 - Use the verified Rollz Instagram profile and a Google Maps search for the known Sage Hill address as the only external actions until ordering details are confirmed.
+- Use fixed responsive type sizes at explicit breakpoints so the long Classic headline remains fully visible without viewport-scaled text.
+- Close the native mobile details navigation after a link is selected and offset in-page anchors for the sticky header.

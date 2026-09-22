@@ -23,9 +23,19 @@ body {
   color: var(--text);
 }
 
+section[id] {
+  scroll-margin-top: 76px;
+}
+
 a {
   color: inherit;
   text-decoration: none;
+}
+
+a:focus-visible,
+summary:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 74%, #fff);
+  outline-offset: 3px;
 }
 
 .site {
@@ -87,6 +97,7 @@ a {
 
 .brand {
   gap: 10px;
+  min-height: 44px;
   min-width: 0;
 }
 
@@ -109,8 +120,8 @@ a {
 
 .brand-mark {
   display: grid;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   flex: 0 0 auto;
   place-items: center;
   border-radius: 50%;
@@ -130,12 +141,17 @@ a {
   justify-content: center;
 }
 
+.desktop-nav a {
+  min-width: 44px;
+  text-align: center;
+}
+
 .desktop-nav a,
 .ghost-link,
 .order-link,
 .mobile-nav summary,
 .mobile-nav a {
-  min-height: 40px;
+  min-height: 44px;
   padding: 11px 2px;
   border-radius: 0;
   font-size: 0.9rem;
@@ -255,15 +271,20 @@ h1 {
   color: inherit;
   max-width: 10ch;
   margin-bottom: 18px;
-  font-size: clamp(3rem, 9vw, 7.6rem);
-  line-height: 0.92;
+  font-size: 6.5rem;
+  line-height: 0.96;
   letter-spacing: 0;
+}
+
+.theme-classic h1 {
+  max-width: none;
+  font-size: 5rem;
 }
 
 h2 {
   color: var(--text);
   margin-bottom: 18px;
-  font-size: clamp(2rem, 4vw, 4.4rem);
+  font-size: 4rem;
   line-height: 1;
   letter-spacing: 0;
 }
@@ -383,7 +404,7 @@ p {
 .promo-copy h2 {
   color: var(--text);
   max-width: 11ch;
-  font-size: clamp(3rem, 7vw, 6rem);
+  font-size: 5.5rem;
 }
 
 .promo-copy p {
@@ -406,13 +427,13 @@ p {
 
 .promo-price span {
   display: grid;
-  width: 118px;
-  min-height: 118px;
+  width: 132px;
+  min-height: 132px;
   place-items: center;
   border-radius: 50%;
   background: var(--accent);
   color: #fff8ed;
-  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  font-size: 1.85rem;
   font-weight: 900;
   line-height: 1;
   text-transform: uppercase;
@@ -608,7 +629,7 @@ p {
 .burger-copy h3 {
   margin: 0;
   color: var(--text);
-  font-size: clamp(1.55rem, 2.2vw, 2.2rem);
+  font-size: 2rem;
 }
 
 .burger-copy p:last-child {
@@ -659,7 +680,7 @@ p {
 
 .chicken-copy h3 {
   color: inherit;
-  font-size: clamp(2rem, 4vw, 3.6rem);
+  font-size: 3.2rem;
 }
 
 .chicken-copy p:not(.eyebrow) {
@@ -667,7 +688,9 @@ p {
 }
 
 .text-link {
-  display: inline-block;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
   margin-top: 8px;
   border-bottom: 2px solid currentColor;
   padding-bottom: 4px;
@@ -685,7 +708,7 @@ p {
 
 .menu-list-heading h3 {
   margin: 0;
-  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-size: 3rem;
 }
 
 .menu-list-row {
@@ -787,7 +810,7 @@ p {
 
 .social-proof strong {
   display: block;
-  font-size: clamp(1.15rem, 1.8vw, 1.55rem);
+  font-size: 1.4rem;
   line-height: 1.22;
 }
 
@@ -977,8 +1000,37 @@ p {
     box-shadow: var(--shadow);
   }
 
+  .mobile-nav div a {
+    width: 100%;
+    padding: 12px;
+    border-bottom: 1px solid var(--line);
+    color: var(--text);
+  }
+
+  .mobile-nav div a:last-child {
+    border-bottom: 0;
+  }
+
+  .mobile-nav div a:hover,
+  .mobile-nav div a:focus-visible {
+    background: color-mix(in srgb, var(--surface-strong) 8%, var(--surface));
+    color: var(--text);
+  }
+
   .hero {
     min-height: 720px;
+  }
+
+  h1 {
+    font-size: 4.5rem;
+  }
+
+  .theme-classic h1 {
+    font-size: 3.5rem;
+  }
+
+  h2 {
+    font-size: 3rem;
   }
 
   .hero-shade,
@@ -1023,7 +1075,7 @@ p {
 
   .promo-copy h2 {
     max-width: none;
-    font-size: clamp(2.4rem, 11vw, 4.6rem);
+    font-size: 4rem;
   }
 
   .promo-price {
@@ -1080,11 +1132,38 @@ p {
   }
 
   h1 {
-    font-size: clamp(2.8rem, 18vw, 4.7rem);
+    font-size: 2.7rem;
+    line-height: 0.98;
+  }
+
+  .theme-classic h1 {
+    font-size: 2.25rem;
+  }
+
+  h2 {
+    font-size: 2.1rem;
+    line-height: 1.05;
+  }
+
+  .promo-copy h2 {
+    font-size: 2.6rem;
+  }
+
+  .burger-copy h3 {
+    font-size: 1.7rem;
+  }
+
+  .chicken-copy h3,
+  .menu-list-heading h3 {
+    font-size: 2.2rem;
   }
 
   .hero-content {
     width: calc(100% - 28px);
+  }
+
+  .section {
+    padding: 56px 0;
   }
 
   .primary-button,
@@ -1127,7 +1206,22 @@ p {
   }
 
   .intro-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .intro-grid article {
+    min-height: 92px;
+    padding: 14px;
+  }
+
+  .intro-grid span {
+    font-size: 0.95rem;
+  }
+
+  .social-proof div {
+    min-height: auto;
+    padding: 20px;
   }
 
   .promo-actions .primary-button,
@@ -1140,4 +1234,10 @@ p {
     width: 100%;
   }
 
+}
+
+@media (min-width: 360px) and (max-width: 520px) {
+  .theme-classic h1 {
+    font-size: 2.5rem;
+  }
 }

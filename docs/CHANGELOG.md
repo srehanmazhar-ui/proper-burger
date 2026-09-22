@@ -31,3 +31,6 @@
 - Replaced internal concept, confirmation, and placeholder copy with customer-facing restaurant language.
 - Connected directions and Instagram actions to real destinations while keeping unconfirmed online ordering details out of the public interface.
 - Passed a fresh production build and visually verified Classic and Premium layouts at desktop and 390px mobile widths.
+- Audited both concepts at 320px, 390px, 768px, and 1280px widths.
+- Fixed the Classic hero headline at narrow widths, corrected invisible mobile-menu links, added automatic menu closing, and protected anchor targets from the sticky header.
+- Increased navigation and action touch targets, added keyboard focus styling, and reduced small-screen section/card density.

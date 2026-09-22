@@ -33,6 +33,8 @@ Updated: 2026-09-22
 | Done | Replace repeated menu cards with a responsive three-burger product lineup and supporting menu sections. |
 | Done | Remove internal design/approval language and dead ordering actions from client-facing pages. |
 | Done | Re-run production build and desktop/mobile visual QA for both concepts. |
+| Done | Complete mobile audit at 320px, 390px, and 768px, including overflow, clipping, image loading, navigation, anchor offsets, and touch targets. |
+| Done | Fix narrow-screen Classic headline clipping and invisible mobile navigation links. |
 | Blocked | Publish the latest revision to Vercel until the connected account is authorized. |
 
 ## Current Notes
@@ -50,3 +52,4 @@ Updated: 2026-09-22
 - The menu presents Single, Double, and Triple Smash as a deliberate product lineup instead of generic repeated cards or enlarged poster crops.
 - The promo is a contained campaign section, menu imagery remains fully visible on desktop and mobile, and all visible actions lead to a real page section, map search, or the Rollz Instagram profile.
 - The latest local revision is presentation-ready; the public Vercel URL will continue showing the earlier deployment until account authorization is restored and a new production deploy succeeds.
+- Mobile navigation now uses visible high-contrast links, closes after selection, and lands below the sticky header. All primary mobile actions meet a 44px minimum touch size.

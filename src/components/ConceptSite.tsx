@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import type { MouseEvent } from "react";
 import { Concept, instagramUrl, mapsUrl, menu, promo, venueAddress, venueName } from "@/data/restaurant";
 
 type Props = {
@@ -14,6 +17,10 @@ const navItems = [
   { href: "#story", label: "Story" },
   { href: "#visit", label: "Visit" }
 ];
+
+function closeMobileNav(event: MouseEvent<HTMLAnchorElement>) {
+  event.currentTarget.closest("details")?.removeAttribute("open");
+}
 
 export function ConceptSite({ concept, alternate }: Props) {
   const burgers = menu.filter((item) => item.category === "Burgers");
@@ -49,11 +56,11 @@ export function ConceptSite({ concept, alternate }: Props) {
           <summary>Menu</summary>
           <div>
             {navItems.map((item) => (
-              <a href={item.href} key={item.href}>
+              <a href={item.href} key={item.href} onClick={closeMobileNav}>
                 {item.label}
               </a>
             ))}
-            <Link href={alternate.route}>{concept.switchLabel}</Link>
+            <Link href={alternate.route} onClick={closeMobileNav}>{concept.switchLabel}</Link>
           </div>
         </details>
       </header>
