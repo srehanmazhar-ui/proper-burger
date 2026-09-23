@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { MobileNav } from "@/components/MobileNav";
+import { PremiumMotion } from "@/components/PremiumMotion";
 import {
   burgers,
   Concept,
@@ -23,8 +24,16 @@ export const navItems = [
 ];
 
 export function ConceptSite({ concept, alternate }: Props) {
+  const proofPoints = [
+    "Fresh beef",
+    "Crisp smashed edges",
+    "Cheese in every layer",
+    "Calgary · Sage Hill"
+  ];
+
   return (
     <main className={`site theme-${concept.id}`}>
+      {concept.id === "premium" && <PremiumMotion />}
       <div className="announcement">
         <p>Now serving at Rollz Sage Hill</p>
         <a href={mapsUrl} target="_blank" rel="noreferrer">
@@ -56,7 +65,15 @@ export function ConceptSite({ concept, alternate }: Props) {
       <section className="hero" id="home">
         <div className="hero-copy">
           <p className="eyebrow">Proper Burger · Sage Hill</p>
-          <h1>{concept.headline}</h1>
+          {concept.id === "premium" ? (
+            <h1 className="kinetic-headline" aria-label={concept.headline}>
+              <span>Smashed.</span>
+              <span>Stacked.</span>
+              <span>Properly.</span>
+            </h1>
+          ) : (
+            <h1>{concept.headline}</h1>
+          )}
           <p className="hero-intro">{concept.intro}</p>
           <div className="button-row">
             <a href="#menu" className="button button-primary">
@@ -87,14 +104,21 @@ export function ConceptSite({ concept, alternate }: Props) {
       </section>
 
       <section className="proof-strip" aria-label="Proper Burger highlights">
-        <span>Fresh beef</span>
-        <span>Crisp smashed edges</span>
-        <span>Cheese in every layer</span>
-        <span>Calgary · Sage Hill</span>
+        {concept.id === "premium" ? (
+          <div className="proof-run">
+            {[0, 1].map((group) => (
+              <div className="proof-group" aria-hidden={group === 1} key={group}>
+                {proofPoints.map((point) => <span key={point}>{point}</span>)}
+              </div>
+            ))}
+          </div>
+        ) : (
+          proofPoints.map((point) => <span key={point}>{point}</span>)
+        )}
       </section>
 
       <section className="menu-section">
-        <div className="section-heading" id="menu">
+        <div className="section-heading" id="menu" data-reveal="heading">
           <div>
             <p className="eyebrow">The burgers</p>
             <h2>{concept.menuHeading}</h2>
@@ -104,7 +128,7 @@ export function ConceptSite({ concept, alternate }: Props) {
 
         <div className="burger-grid">
           {burgers.map((item, index) => (
-            <article className="menu-card" key={item.name}>
+            <article className={`menu-card reveal-delay-${index + 1}`} data-reveal="card" key={item.name}>
               <div className="menu-card-image">
                 <Image
                   src={concept.id === "premium" && item.premiumImage ? item.premiumImage : item.image}
@@ -123,7 +147,7 @@ export function ConceptSite({ concept, alternate }: Props) {
           ))}
         </div>
 
-        <div className="menu-note">
+        <div className="menu-note" data-reveal="panel">
           <strong>Current prices and availability</strong>
           <p>Ask in store or check Instagram for the latest menu before ordering.</p>
           <a href={instagramUrl} target="_blank" rel="noreferrer">
@@ -133,7 +157,7 @@ export function ConceptSite({ concept, alternate }: Props) {
       </section>
 
       <section className="sides-section" aria-labelledby="sides-title">
-        <div className="section-heading compact">
+        <div className="section-heading compact" data-reveal="heading">
           <div>
             <p className="eyebrow">Finish the order</p>
             <h2 id="sides-title">Sides worth making room for.</h2>
@@ -141,8 +165,8 @@ export function ConceptSite({ concept, alternate }: Props) {
         </div>
 
         <div className="sides-grid">
-          {sides.map((item) => (
-            <article className="side-card" key={item.name}>
+          {sides.map((item, index) => (
+            <article className={`side-card reveal-delay-${index + 1}`} data-reveal="card" key={item.name}>
               <div className="side-card-image">
                 <Image
                   src={concept.id === "premium" && item.premiumImage ? item.premiumImage : item.image}
@@ -161,11 +185,19 @@ export function ConceptSite({ concept, alternate }: Props) {
         </div>
       </section>
 
-      <section className="quality-section">
+      <section className="quality-section" data-reveal="quality">
         <div className="quality-kicker"><span>01</span><p>Smashed on the grill</p></div>
         <div className="quality-copy" id="why-proper">
           <p className="eyebrow">Why Proper</p>
-          <h2>{concept.qualityHeading}</h2>
+          {concept.id === "premium" ? (
+            <h2 className="quality-kinetic" aria-label={concept.qualityHeading}>
+              <span>The crunch.</span>
+              <span>The melt.</span>
+              <span>The payoff.</span>
+            </h2>
+          ) : (
+            <h2>{concept.qualityHeading}</h2>
+          )}
           <p>{concept.qualityCopy}</p>
         </div>
         <div className="quality-steps">
@@ -174,7 +206,7 @@ export function ConceptSite({ concept, alternate }: Props) {
         </div>
       </section>
 
-      <section className="visit-section">
+      <section className="visit-section" data-reveal="split">
         <div className="visit-image">
           <Image src="/images/proper-storefront.jpg" alt="Proper Burger storefront beside Rollz Ice Cream and Desserts in Sage Hill." fill sizes="(max-width: 900px) 100vw, 52vw" />
         </div>
@@ -190,7 +222,7 @@ export function ConceptSite({ concept, alternate }: Props) {
         </div>
       </section>
 
-      <section className="closing-cta">
+      <section className="closing-cta" data-reveal="closing">
         <p className="eyebrow">Come hungry</p>
         <h2>Make it a Proper one.</h2>
         <a href={mapsUrl} target="_blank" rel="noreferrer" className="button button-primary">Get directions</a>
