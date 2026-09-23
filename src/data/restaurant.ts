@@ -2,6 +2,7 @@ export type MenuItem = {
   name: string;
   description: string;
   image: string;
+  premiumImage?: string;
   imageAlt: string;
   tag: string;
 };
@@ -34,6 +35,7 @@ export const burgers: MenuItem[] = [
     description:
       "A crisp-edged smashed beef patty with melted cheese and pickles on a soft toasted bun.",
     image: "/images/proper-single.jpg",
+    premiumImage: "/images/proper-single-black.png",
     imageAlt: "Proper Burger single smashburger with cheese and pickles.",
     tag: "The classic"
   },
@@ -42,6 +44,7 @@ export const burgers: MenuItem[] = [
     description:
       "Two smashed beef patties layered with melted cheese and pickles for a fuller bite.",
     image: "/images/proper-double.jpg",
+    premiumImage: "/images/proper-double-black.png",
     imageAlt: "Proper Burger double smashburger with melted cheese.",
     tag: "Crowd favourite"
   },
@@ -50,6 +53,7 @@ export const burgers: MenuItem[] = [
     description:
       "Three smashed beef patties stacked with cheese for the biggest Proper Burger build.",
     image: "/images/proper-triple.jpg",
+    premiumImage: "/images/proper-triple-black.png",
     imageAlt: "Proper Burger triple smashburger stacked with cheese.",
     tag: "Go all in"
   }
@@ -61,6 +65,7 @@ export const sides: MenuItem[] = [
     description:
       "Golden, crunchy chicken with a creamy dip. Ask in store for today’s serving options.",
     image: "/images/proper-chicken.jpg",
+    premiumImage: "/images/proper-chicken-black.png",
     imageAlt: "Crispy chicken and fries with creamy dipping sauce.",
     tag: "Crispy favourite"
   },
@@ -69,6 +74,7 @@ export const sides: MenuItem[] = [
     description:
       "Hot fries finished with a generous savoury topping. Today’s build is available in store.",
     image: "/images/proper-loaded-fries.jpg",
+    premiumImage: "/images/proper-loaded-fries-black.png",
     imageAlt: "Proper Burger loaded fries with sauce and toppings.",
     tag: "Made for sharing"
   },
@@ -77,6 +83,7 @@ export const sides: MenuItem[] = [
     description:
       "Hot, golden fries ready to complete any burger order.",
     image: "/images/proper-fries.jpg",
+    premiumImage: "/images/proper-fries-black.png",
     imageAlt: "Golden fries served in red and white checked paper.",
     tag: "Keep it classic"
   }
@@ -108,7 +115,7 @@ export const concepts: Record<Concept["id"], Concept> = {
     headline: "Smashed. Stacked. Properly.",
     intro:
       "Crisp-edged smashburgers, stacked with intention and served without the unnecessary extras.",
-    heroImage: "/images/proper-triple.jpg",
+    heroImage: "/images/proper-triple-black.png",
     heroAlt: "Proper Burger smashburger photographed on a wooden board.",
     menuHeading: "The Proper lineup.",
     menuIntro:

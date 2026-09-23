@@ -106,7 +106,12 @@ export function ConceptSite({ concept, alternate }: Props) {
           {burgers.map((item, index) => (
             <article className="menu-card" key={item.name}>
               <div className="menu-card-image">
-                <Image src={item.image} alt={item.imageAlt} fill sizes="(max-width: 760px) 100vw, 33vw" />
+                <Image
+                  src={concept.id === "premium" && item.premiumImage ? item.premiumImage : item.image}
+                  alt={item.imageAlt}
+                  fill
+                  sizes="(max-width: 760px) 100vw, 33vw"
+                />
                 <span className="item-number">0{index + 1}</span>
               </div>
               <div className="menu-card-copy">
@@ -139,7 +144,12 @@ export function ConceptSite({ concept, alternate }: Props) {
           {sides.map((item) => (
             <article className="side-card" key={item.name}>
               <div className="side-card-image">
-                <Image src={item.image} alt={item.imageAlt} fill sizes="(max-width: 760px) 100vw, 33vw" />
+                <Image
+                  src={concept.id === "premium" && item.premiumImage ? item.premiumImage : item.image}
+                  alt={item.imageAlt}
+                  fill
+                  sizes="(max-width: 760px) 100vw, 33vw"
+                />
               </div>
               <div>
                 <p className="menu-tag">{item.tag}</p>
