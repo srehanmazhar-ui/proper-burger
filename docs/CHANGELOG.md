@@ -49,3 +49,4 @@
 - Replaced the construction-like Premium headline with “Smashed. Stacked. Properly.”
 - Restored sticky navigation during page scrolling and moved the website-option switch away from the primary hero actions.
 - Standardized the hero headline scale so both visual directions remain fully inside the copy panel at desktop widths.
+- Reduced the desktop hero height slightly so the photograph clears the feature boxes beneath it more comfortably.

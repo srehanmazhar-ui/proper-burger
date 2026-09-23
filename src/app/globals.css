@@ -180,7 +180,7 @@ h3 {
 
 .hero {
   display: grid;
-  min-height: min(760px, calc(100vh - 116px));
+  min-height: min(720px, calc(100vh - 116px));
   grid-template-columns: minmax(0, 44%) minmax(0, 56%);
   background: var(--surface);
 }
@@ -191,7 +191,7 @@ h3 {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: clamp(70px, 8vw, 130px) clamp(30px, 6vw, 90px);
+  padding: clamp(64px, 7vw, 115px) clamp(30px, 6vw, 90px);
 }
 
 .eyebrow,
