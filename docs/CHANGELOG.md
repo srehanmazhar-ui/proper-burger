@@ -50,3 +50,5 @@
 - Restored sticky navigation during page scrolling and moved the website-option switch away from the primary hero actions.
 - Standardized the hero headline scale so both visual directions remain fully inside the copy panel at desktop widths.
 - Reduced the desktop hero height slightly so the photograph clears the feature boxes beneath it more comfortably.
+- Fixed Premium mobile “Why Proper” supporting paragraph contrast so the copy is visible on the dark section; no layout, typography sizing, content, or other styling changed.
+
