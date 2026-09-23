@@ -558,6 +558,10 @@ h3 {
   color: color-mix(in srgb, var(--dark-ink) 68%, transparent);
 }
 
+.theme-premium .quality-copy > p:last-child {
+  color: var(--muted);
+}
+
 .quality-kicker,
 .quality-steps div {
   padding-top: 16px;
