@@ -1,6 +1,6 @@
 # Project Status
 
-Updated: 2026-09-22
+Updated: 2026-09-23
 
 ## Task Board
 
@@ -35,21 +35,19 @@ Updated: 2026-09-22
 | Done | Re-run production build and desktop/mobile visual QA for both concepts. |
 | Done | Complete mobile audit at 320px, 390px, and 768px, including overflow, clipping, image loading, navigation, anchor offsets, and touch targets. |
 | Done | Fix narrow-screen Classic headline clipping and invisible mobile navigation links. |
-| Blocked | Publish the latest revision to Vercel until the connected account is authorized. |
+| Done | Re-audit sales journey, content accuracy, brand hierarchy, and mobile actions. |
+| Done | Replace expired promotional pricing with current-availability guidance. |
+| Done | Rebuild both routes around supplied Proper Burger food and storefront photography. |
+| Done | Publish the re-audited revision to Vercel production. |
 
 ## Current Notes
 
 - Both approved directions are preserved as the only two routes.
-- All unknown client facts are centralized as confirmation items.
 - Production build passes with Next.js 16.3.5.
-- Browser QA covered `/classic` and `/premium` with desktop navigation, mobile navigation behavior, full page content, and console-error check.
-- Production deployment is live at `https://proper-burger.vercel.app`.
-- GitHub push was completed from the user's PowerShell session after Git safe-directory setup and merge with the initial GitHub commit.
-- Vercel GitHub integration could not connect the private repository during deployment, but the local-file deployment completed successfully.
-- Second pass replaced internal-looking placeholders with client-facing `Coming soon` copy, added grouped menu sections, experience sections, improved visit/order areas, and stronger presentation flow for both concepts.
-- Current content uses provided Instagram screenshots as source material: Rollz Ice Cream & Desserts, 3950 Sage Hill Drive NW, smashburger pricing, meal upgrade, Alberta beef line, loaded fries, chicken items, and Double Smash Fix.
-- Both routes now use clean transparent burger and meal assets derived from the supplied menu imagery, plus the supplied chicken/tender reference photo.
-- The menu presents Single, Double, and Triple Smash as a deliberate product lineup instead of generic repeated cards or enlarged poster crops.
-- The promo is a contained campaign section, menu imagery remains fully visible on desktop and mobile, and all visible actions lead to a real page section, map search, or the Rollz Instagram profile.
-- The latest local revision is presentation-ready; the public Vercel URL will continue showing the earlier deployment until account authorization is restored and a new production deploy succeeds.
-- Mobile navigation now uses visible high-contrast links, closes after selection, and lands below the sticky header. All primary mobile actions meet a 44px minimum touch size.
+- Production is live at `https://proper-burger.vercel.app`.
+- Browser QA covered both routes, the concept switcher, mobile navigation closing, external directions, image loading, and responsive content flow.
+- The revised customer journey is appetite, menu, proof, location, and action.
+- Expired promotion prices and dated offer language were removed from public pages.
+- Supplied Proper Burger food and storefront photographs now lead the visual presentation.
+- Mobile navigation closes after selection and a persistent menu/directions bar appears on phone widths.
+- Current prices, hours, contact details, and an ordering URL remain client-confirmation items.

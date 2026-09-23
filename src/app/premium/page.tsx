@@ -3,9 +3,9 @@ import { ConceptSite } from "@/components/ConceptSite";
 import { concepts } from "@/data/restaurant";
 
 export const metadata: Metadata = {
-  title: "Premium Black Concept",
+  title: "Proper Burger — Black & Silver",
   description:
-    "Proper Burger Premium Black concept with a storefront-led cinematic identity and refined restaurant structure."
+    "Crisp-edged smashburgers and loaded sides at Proper Burger in Sage Hill, Calgary."
 };
 
 export default function PremiumPage() {

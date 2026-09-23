@@ -34,3 +34,12 @@
 - Audited both concepts at 320px, 390px, 768px, and 1280px widths.
 - Fixed the Classic hero headline at narrow widths, corrected invisible mobile-menu links, added automatic menu closing, and protected anchor targets from the sticky header.
 - Increased navigation and action touch targets, added keyboard focus styling, and reduced small-screen section/card density.
+
+## 2026-09-23
+
+- Re-audited the website against leading burger-chain customer journeys.
+- Rebuilt both visual options around menu discovery and store directions.
+- Replaced generic generated hero art with supplied Proper Burger photography.
+- Removed expired promotion pricing and internal project language from the customer experience.
+- Added a persistent mobile action bar, simplified navigation, improved accessibility, and a custom favicon.
+- Added `docs/WEBSITE-AUDIT.md` with findings, changes, and launch confirmations.

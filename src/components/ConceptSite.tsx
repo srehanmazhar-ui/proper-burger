@@ -1,42 +1,43 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import type { MouseEvent } from "react";
-import { Concept, instagramUrl, mapsUrl, menu, promo, venueAddress, venueName } from "@/data/restaurant";
+import { MobileNav } from "@/components/MobileNav";
+import {
+  burgers,
+  Concept,
+  instagramUrl,
+  mapsUrl,
+  sides,
+  venueAddress,
+  venueName
+} from "@/data/restaurant";
 
 type Props = {
   concept: Concept;
   alternate: Concept;
 };
 
-const navItems = [
-  { href: "#home", label: "Home" },
+export const navItems = [
   { href: "#menu", label: "Menu" },
-  { href: "#experience", label: "Experience" },
-  { href: "#story", label: "Story" },
+  { href: "#why-proper", label: "Why Proper" },
   { href: "#visit", label: "Visit" }
 ];
 
-function closeMobileNav(event: MouseEvent<HTMLAnchorElement>) {
-  event.currentTarget.closest("details")?.removeAttribute("open");
-}
-
 export function ConceptSite({ concept, alternate }: Props) {
-  const burgers = menu.filter((item) => item.category === "Burgers");
-  const chicken = menu.find((item) => item.category === "Chicken");
-  const sidesAndDrinks = menu.filter((item) => item.category === "Sides" || item.category === "Drinks");
-
   return (
     <main className={`site theme-${concept.id}`}>
+      <div className="announcement">
+        <p>Now serving at Rollz Sage Hill</p>
+        <a href={mapsUrl} target="_blank" rel="noreferrer">
+          Get directions <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+
       <header className="site-header">
-        <Link href={concept.route} className="brand" aria-label={`${concept.name} ${concept.label}`}>
-          <span className="brand-mark">PB</span>
-          <span>
-            <strong>{concept.name}</strong>
-            <small>{concept.label}</small>
-          </span>
+        <Link href={concept.route} className="wordmark" aria-label="Proper Burger home">
+          <span>PROPER</span>
+          <span>BURGER</span>
         </Link>
+
         <nav className="desktop-nav" aria-label="Primary navigation">
           {navItems.map((item) => (
             <a href={item.href} key={item.href}>
@@ -44,258 +45,161 @@ export function ConceptSite({ concept, alternate }: Props) {
             </a>
           ))}
         </nav>
-        <div className="header-actions">
-          <Link href={alternate.route} className="ghost-link">
-            {concept.switchLabel}
-          </Link>
-          <a href="#visit" className="order-link">
-            Order
-          </a>
-        </div>
-        <details className="mobile-nav">
-          <summary>Menu</summary>
-          <div>
-            {navItems.map((item) => (
-              <a href={item.href} key={item.href} onClick={closeMobileNav}>
-                {item.label}
-              </a>
-            ))}
-            <Link href={alternate.route} onClick={closeMobileNav}>{concept.switchLabel}</Link>
-          </div>
-        </details>
+
+        <a href="#menu" className="header-cta">
+          View menu
+        </a>
+
+        <MobileNav items={navItems} directionsUrl={mapsUrl} />
       </header>
 
       <section className="hero" id="home">
-        <Image
-          src={concept.image}
-          alt={concept.imageAlt}
-          fill
-          priority
-          loading="eager"
-          sizes="100vw"
-          className="hero-image"
-        />
-        <div className="hero-shade" />
-        <div className="hero-content">
-          <p className="eyebrow">{concept.eyebrow}</p>
+        <div className="hero-copy">
+          <p className="eyebrow">Proper Burger · Sage Hill</p>
           <h1>{concept.headline}</h1>
-          <p>{concept.intro}</p>
-          <div className="hero-actions">
-            <a href="#menu" className="primary-button">
-              View Menu
+          <p className="hero-intro">{concept.intro}</p>
+          <div className="button-row">
+            <a href="#menu" className="button button-primary">
+              Explore the menu
             </a>
-            <a href="#visit" className="secondary-button">
-              Visit / Order
-            </a>
-          </div>
-          <p className="hero-note">{concept.heroNote}</p>
-        </div>
-      </section>
-
-      <section className="quick-panel" aria-label="Concept summary">
-        <div>
-          <span>Location</span>
-          <strong>{venueAddress}</strong>
-        </div>
-        <div>
-          <span>Venue</span>
-          <strong>{venueName}</strong>
-        </div>
-        <div>
-          <span>Ordering</span>
-          <strong>Visit us in store</strong>
-        </div>
-      </section>
-
-      <section className="promo-banner" aria-label="Featured burger promotion">
-        <div className="promo-copy">
-          <p className="eyebrow">{promo.label}</p>
-          <h2>{promo.title}</h2>
-          <p>{promo.detail}</p>
-          <div className="promo-actions">
-            <a href="#menu" className="primary-button">
-              View Deal
-            </a>
-            <a href="#menu" className="secondary-button surface-button">
-              Build A Meal
+            <a href={mapsUrl} target="_blank" rel="noreferrer" className="button button-secondary">
+              Get directions
             </a>
           </div>
+          <p className="hero-location">Inside {venueName}</p>
         </div>
-        <div className="promo-price">
-          <span>{promo.priceLine}</span>
-        </div>
-        <div className="promo-image">
-          <Image src={promo.image} alt={promo.imageAlt} fill sizes="(max-width: 900px) 100vw, 34vw" />
+
+        <div className="hero-visual">
+          <Image
+            src={concept.heroImage}
+            alt={concept.heroAlt}
+            fill
+            priority
+            loading="eager"
+            sizes="(max-width: 900px) 100vw, 56vw"
+          />
+          <div className="hero-stamp" aria-hidden="true">
+            <span>SMASHED</span>
+            <strong>FRESH</strong>
+            <span>TO ORDER</span>
+          </div>
         </div>
       </section>
 
-      <section className="section intro-section" aria-label="Website overview">
-        <div className="intro-copy">
-          <p className="eyebrow">Burgers Meet Dessert</p>
-          <h2>A proper smashburger stop inside Rollz.</h2>
-          <p>
-            One stop for smashed beef, crispy chicken, loaded fries, cold drinks, and the Rollz desserts Calgary already knows.
-          </p>
-        </div>
-        <div className="intro-grid">
-          {concept.highlights.map((highlight) => (
-            <article key={highlight}>
-              <span>{highlight}</span>
-            </article>
-          ))}
-        </div>
+      <section className="proof-strip" aria-label="Proper Burger highlights">
+        <span>Fresh beef</span>
+        <span>Crisp smashed edges</span>
+        <span>Cheese in every layer</span>
+        <span>Calgary · Sage Hill</span>
       </section>
 
-      <section className="section menu-section" id="menu">
+      <section className="menu-section" id="menu">
         <div className="section-heading">
-          <p className="eyebrow">The Lineup</p>
-          <h2>Pick your smash.</h2>
+          <div>
+            <p className="eyebrow">The burgers</p>
+            <h2>{concept.menuHeading}</h2>
+          </div>
           <p>{concept.menuIntro}</p>
         </div>
-        <div className="burger-lineup" aria-label="Smashburgers">
+
+        <div className="burger-grid">
           {burgers.map((item, index) => (
-            <article className={`burger-card burger-card-${index + 1}`} key={item.name}>
-              <div className="burger-visual">
-                <Image src={item.image!} alt={item.imageAlt ?? item.name} fill sizes="(max-width: 900px) 92vw, 32vw" />
-                <span className="burger-count">{index + 1}</span>
+            <article className="menu-card" key={item.name}>
+              <div className="menu-card-image">
+                <Image src={item.image} alt={item.imageAlt} fill sizes="(max-width: 760px) 100vw, 33vw" />
+                <span className="item-number">0{index + 1}</span>
               </div>
-              <div className="burger-copy">
-                <div>
-                  <p className="menu-kicker">{item.tags?.[0]}</p>
-                  <h3>{item.name}</h3>
-                </div>
-                <strong className="burger-price">{item.price}</strong>
+              <div className="menu-card-copy">
+                <p className="menu-tag">{item.tag}</p>
+                <h3>{item.name}</h3>
                 <p>{item.description}</p>
               </div>
             </article>
           ))}
         </div>
 
-        <div className="menu-supporting">
-          {chicken && (
-            <article className="chicken-feature">
-              <div className="chicken-image">
-                <Image src={chicken.image!} alt={chicken.imageAlt ?? chicken.name} fill sizes="(max-width: 900px) 100vw, 52vw" />
-              </div>
-              <div className="chicken-copy">
-                <p className="eyebrow">Crispy Side Of The Menu</p>
-                <h3>{chicken.name}</h3>
-                <p>{chicken.description}</p>
-                <a href={instagramUrl} target="_blank" rel="noreferrer" className="text-link">
-                  See today&apos;s menu on Instagram
-                </a>
-              </div>
-            </article>
-          )}
-
-          <section className="menu-list" aria-label="Sides and drinks">
-            <div className="menu-list-heading">
-              <p className="eyebrow">Finish The Order</p>
-              <h3>Sides &amp; sips</h3>
-            </div>
-            {sidesAndDrinks.map((item) => (
-              <article className="menu-list-row" key={item.name}>
-                <div>
-                  <h4>{item.name}</h4>
-                  <p>{item.description}</p>
-                </div>
-                {item.price && <strong>{item.price}</strong>}
-              </article>
-            ))}
-          </section>
+        <div className="menu-note">
+          <strong>Current prices and availability</strong>
+          <p>Ask in store or check Instagram for the latest menu before ordering.</p>
+          <a href={instagramUrl} target="_blank" rel="noreferrer">
+            Check Instagram <span aria-hidden="true">↗</span>
+          </a>
         </div>
       </section>
 
-      <section className="feature-band" id="experience">
-        <div className="feature-image">
-          <Image
-            src={concept.image}
-            alt=""
-            fill
-            sizes="(max-width: 900px) 100vw, 50vw"
-          />
-        </div>
-        <div className="feature-copy">
-          <p className="eyebrow">Experience</p>
-          <h2>{concept.id === "classic" ? "Easy, warm, unmistakably burger-first." : "Smashed hard. Stacked properly."}</h2>
-          <p>
-            {concept.id === "classic"
-              ? "A familiar burger-counter experience built for easy choices: pick your smash, add fries and a cold drink, then finish with a Rollz dessert."
-              : "Fresh Alberta beef hits the grill, gets pressed for crisp edges, and is stacked with melted cheese and pickles on a soft toasted bun."}
-          </p>
-          <div className="feature-points">
-            {concept.toneNotes.map((note) => (
-              <span key={note}>{note}</span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="social-proof" aria-label="Instagram menu proof points">
-        <div>
-          <span>The Beef</span>
-          <strong>Fresh, never-frozen locally sourced Alberta beef, smashed fresh to order.</strong>
-        </div>
-        <div>
-          <span>Combo Hook</span>
-          <strong>Make any burger a meal for $3.99 with fries and a can pop.</strong>
-        </div>
-        <div>
-          <span>Find Us</span>
-          <strong>Proper Burger is served inside Rollz Ice Cream &amp; Desserts in Sage Hill.</strong>
-        </div>
-      </section>
-
-      <section className="section story-section" id="story">
-        <div className="story-copy">
-          <p className="eyebrow">Our Story</p>
-          <h2>{concept.storyTitle}</h2>
-          {concept.story.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-        </div>
-        <div className="tone-list" aria-label="Brand tone">
-          {concept.toneNotes.map((note) => (
-            <span key={note}>{note}</span>
-          ))}
-        </div>
-      </section>
-
-      <section className="section contact-section" id="visit">
-        <div className="section-heading">
-          <p className="eyebrow">Visit / Order</p>
-          <h2>Find us at Sage Hill.</h2>
-          <p>{concept.locationNote}</p>
-        </div>
-        <div className="contact-grid">
-          {concept.visitCards.map((card) => (
-            <article key={card.label}>
-              <span>{card.label}</span>
-              <strong>{card.value}</strong>
-              <p>{card.note}</p>
-            </article>
-          ))}
-        </div>
-        <div className="cta-strip">
+      <section className="sides-section" aria-labelledby="sides-title">
+        <div className="section-heading compact">
           <div>
-            <span>Proper Burger</span>
-            <strong>Ready when you are.</strong>
-          </div>
-          <p>Visit Rollz Sage Hill for the burger menu, or follow Instagram for the latest updates.</p>
-          <div className="cta-actions">
-            <a href={mapsUrl} target="_blank" rel="noreferrer">Get Directions</a>
-            <a href={instagramUrl} target="_blank" rel="noreferrer">Instagram</a>
+            <p className="eyebrow">Finish the order</p>
+            <h2 id="sides-title">Sides worth making room for.</h2>
           </div>
         </div>
+
+        <div className="sides-grid">
+          {sides.map((item) => (
+            <article className="side-card" key={item.name}>
+              <div className="side-card-image">
+                <Image src={item.image} alt={item.imageAlt} fill sizes="(max-width: 760px) 100vw, 33vw" />
+              </div>
+              <div>
+                <p className="menu-tag">{item.tag}</p>
+                <h3>{item.name}</h3>
+                <p>{item.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="quality-section" id="why-proper">
+        <div className="quality-kicker"><span>01</span><p>Smashed on the grill</p></div>
+        <div className="quality-copy">
+          <p className="eyebrow">Why Proper</p>
+          <h2>{concept.qualityHeading}</h2>
+          <p>{concept.qualityCopy}</p>
+        </div>
+        <div className="quality-steps">
+          <div><span>02</span><p>Layered with melted cheese</p></div>
+          <div><span>03</span><p>Served hot and ready</p></div>
+        </div>
+      </section>
+
+      <section className="visit-section" id="visit">
+        <div className="visit-image">
+          <Image src="/images/proper-storefront.jpg" alt="Proper Burger storefront beside Rollz Ice Cream and Desserts in Sage Hill." fill sizes="(max-width: 900px) 100vw, 52vw" />
+        </div>
+        <div className="visit-copy">
+          <p className="eyebrow">Visit Proper Burger</p>
+          <h2>Your next burger is in Sage Hill.</h2>
+          <p>Find Proper Burger inside {venueName}. Come for the smashburger, stay for the fries, and leave room for dessert.</p>
+          <address><span>Address</span><strong>{venueAddress}</strong></address>
+          <div className="button-row">
+            <a href={mapsUrl} target="_blank" rel="noreferrer" className="button button-primary">Open in Maps</a>
+            <a href={instagramUrl} target="_blank" rel="noreferrer" className="button button-secondary">Instagram</a>
+          </div>
+        </div>
+      </section>
+
+      <section className="closing-cta">
+        <p className="eyebrow">Come hungry</p>
+        <h2>Make it a Proper one.</h2>
+        <a href={mapsUrl} target="_blank" rel="noreferrer" className="button button-primary">Get directions</a>
       </section>
 
       <footer className="site-footer">
-        <div>
-          <strong>{concept.name}</strong>
-          <span>{concept.label}</span>
-        </div>
-        <p>Smashburgers, crispy sides, and Rollz desserts at Sage Hill.</p>
+        <Link href={concept.route} className="wordmark" aria-label="Proper Burger home"><span>PROPER</span><span>BURGER</span></Link>
+        <p>Smashburgers and crispy sides at Rollz Sage Hill.</p>
+        <div><a href="#menu">Menu</a><a href="#visit">Visit</a><a href={instagramUrl} target="_blank" rel="noreferrer">Instagram</a></div>
       </footer>
+
+      <Link href={alternate.route} className="concept-switcher" aria-label={`Switch to ${alternate.optionLabel} website option`}>
+        <span>Website option</span><strong>{concept.alternateLabel}</strong>
+      </Link>
+
+      <nav className="mobile-action-bar" aria-label="Quick actions">
+        <a href="#menu">View menu</a>
+        <a href={mapsUrl} target="_blank" rel="noreferrer">Directions</a>
+      </nav>
     </main>
   );
 }
