@@ -43,3 +43,9 @@
 - Removed expired promotion pricing and internal project language from the customer experience.
 - Added a persistent mobile action bar, simplified navigation, improved accessibility, and a custom favicon.
 - Added `docs/WEBSITE-AUDIT.md` with findings, changes, and launch confirmations.
+- Reused the approved Classic hero photograph in the Black & Silver option.
+- Corrected the Premium hero headline so it stays fully inside its content column.
+- Moved navigation anchors to their visible section headings for accurate scroll positioning.
+- Replaced the construction-like Premium headline with “Smashed. Stacked. Properly.”
+- Restored sticky navigation during page scrolling and moved the website-option switch away from the primary hero actions.
+- Standardized the hero headline scale so both visual directions remain fully inside the copy panel at desktop widths.

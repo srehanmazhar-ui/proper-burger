@@ -105,11 +105,11 @@ export const concepts: Record<Concept["id"], Concept> = {
     route: "/premium",
     optionLabel: "Black & Silver",
     alternateLabel: "See Classic Red",
-    headline: "Built Proper.",
+    headline: "Smashed. Stacked. Properly.",
     intro:
       "Crisp-edged smashburgers, stacked with intention and served without the unnecessary extras.",
-    heroImage: "/images/proper-hero-premium.jpg",
-    heroAlt: "Close-up of a Proper Burger double smashburger.",
+    heroImage: "/images/proper-triple.jpg",
+    heroAlt: "Proper Burger smashburger photographed on a wooden board.",
     menuHeading: "The Proper lineup.",
     menuIntro:
       "A focused menu for people who know exactly what they came for.",

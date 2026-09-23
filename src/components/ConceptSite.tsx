@@ -93,8 +93,8 @@ export function ConceptSite({ concept, alternate }: Props) {
         <span>Calgary · Sage Hill</span>
       </section>
 
-      <section className="menu-section" id="menu">
-        <div className="section-heading">
+      <section className="menu-section">
+        <div className="section-heading" id="menu">
           <div>
             <p className="eyebrow">The burgers</p>
             <h2>{concept.menuHeading}</h2>
@@ -151,9 +151,9 @@ export function ConceptSite({ concept, alternate }: Props) {
         </div>
       </section>
 
-      <section className="quality-section" id="why-proper">
+      <section className="quality-section">
         <div className="quality-kicker"><span>01</span><p>Smashed on the grill</p></div>
-        <div className="quality-copy">
+        <div className="quality-copy" id="why-proper">
           <p className="eyebrow">Why Proper</p>
           <h2>{concept.qualityHeading}</h2>
           <p>{concept.qualityCopy}</p>
@@ -164,11 +164,11 @@ export function ConceptSite({ concept, alternate }: Props) {
         </div>
       </section>
 
-      <section className="visit-section" id="visit">
+      <section className="visit-section">
         <div className="visit-image">
           <Image src="/images/proper-storefront.jpg" alt="Proper Burger storefront beside Rollz Ice Cream and Desserts in Sage Hill." fill sizes="(max-width: 900px) 100vw, 52vw" />
         </div>
-        <div className="visit-copy">
+        <div className="visit-copy" id="visit">
           <p className="eyebrow">Visit Proper Burger</p>
           <h2>Your next burger is in Sage Hill.</h2>
           <p>Find Proper Burger inside {venueName}. Come for the smashburger, stay for the fries, and leave room for dessert.</p>
