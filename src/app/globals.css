@@ -60,8 +60,8 @@ h3 {
 }
 
 .theme-premium {
-  --bg: #070707;
-  --surface: #111111;
+  --bg: #050505;
+  --surface: #050505;
   --surface-alt: #1a1b1c;
   --ink: #f4f4f0;
   --muted: #acb0b4;
@@ -540,8 +540,12 @@ h3 {
 .theme-premium .quality-section {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  background: #171819;
+  background: #050505;
   color: #f4f4f0;
+}
+
+.theme-premium .quality-copy > p:last-child {
+  color: var(--muted);
 }
 
 .quality-section .eyebrow {
