@@ -34,8 +34,8 @@ export const burgers: MenuItem[] = [
     name: "Single Smash",
     description:
       "A crisp-edged smashed beef patty with melted cheese and pickles on a soft toasted bun.",
-    image: "/images/proper-single.jpg",
-    premiumImage: "/images/proper-single-black.png",
+    image: "/images/proper-double.jpg",
+    premiumImage: "/images/proper-double-black.png",
     imageAlt: "Proper Burger single smashburger with cheese and pickles.",
     tag: "The classic"
   },
@@ -43,8 +43,8 @@ export const burgers: MenuItem[] = [
     name: "Double Smash",
     description:
       "Two smashed beef patties layered with melted cheese and pickles for a fuller bite.",
-    image: "/images/proper-double.jpg",
-    premiumImage: "/images/proper-double-black.png",
+    image: "/images/proper-single.jpg",
+    premiumImage: "/images/proper-single-black.png",
     imageAlt: "Proper Burger double smashburger with melted cheese.",
     tag: "Crowd favourite"
   },
