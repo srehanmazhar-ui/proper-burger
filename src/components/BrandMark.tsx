@@ -11,8 +11,8 @@ export function BrandMark({ className = "" }: Props) {
       className={`brand-mark ${className}`.trim()}
       src="/images/proper-burger-logo-storefront.png"
       alt=""
-      width={889}
-      height={156}
+      width={2005}
+      height={238}
       priority
     />
   );
