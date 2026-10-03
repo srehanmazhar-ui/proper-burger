@@ -46,7 +46,7 @@ export function ConceptSite({ concept, alternate }: Props) {
 
       <header className="site-header">
         <Link href={concept.route} className="wordmark" aria-label="Proper Burger home">
-          <BrandMark />
+          <BrandMark variant={concept.id} />
         </Link>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
@@ -247,7 +247,7 @@ export function ConceptSite({ concept, alternate }: Props) {
       </section>
 
       <footer className="site-footer">
-        <Link href={concept.route} className="wordmark" aria-label="Proper Burger home"><BrandMark /></Link>
+        <Link href={concept.route} className="wordmark" aria-label="Proper Burger home"><BrandMark variant={concept.id} /></Link>
         <p>Smashburgers and crispy sides at Rollz Sage Hill.</p>
         <div><a href="#menu">Menu</a><a href="#visit">Visit</a><a href={instagramUrl} target="_blank" rel="noreferrer">Instagram</a></div>
       </footer>

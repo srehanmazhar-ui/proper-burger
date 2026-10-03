@@ -1,18 +1,19 @@
+import Image from "next/image";
+
 type Props = {
   className?: string;
+  variant?: "classic" | "premium";
 };
 
-export function BrandMark({ className = "" }: Props) {
+export function BrandMark({ className = "", variant = "premium" }: Props) {
   return (
-    <span className={`brand-mark ${className}`.trim()} aria-hidden="true">
-      <span>PROP</span>
-      <span className="brand-e">
-        <i />
-        <i />
-        <i />
-      </span>
-      <span>R</span>
-      <span className="brand-burger">BURGER</span>
-    </span>
+    <Image
+      className={`brand-mark ${className}`.trim()}
+      src={`/images/proper-burger-logo-${variant}.svg`}
+      alt=""
+      width={320}
+      height={56}
+      priority
+    />
   );
 }

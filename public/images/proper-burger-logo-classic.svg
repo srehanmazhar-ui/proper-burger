@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 112" role="img" aria-labelledby="title">
+  <title id="title">Proper Burger</title>
+  <g fill="#FFF8EE" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="76" font-weight="900">
+    <text x="0" y="82">PROP</text>
+    <text x="273" y="82">R</text>
+    <text x="346" y="82">BURGER</text>
+  </g>
+  <g transform="translate(219 24)">
+    <rect width="48" height="13" rx="3" fill="#FFF8EE"/>
+    <rect y="25" width="37" height="13" rx="3" fill="#FFCB05"/>
+    <rect y="50" width="48" height="13" rx="3" fill="#FFF8EE"/>
+  </g>
+</svg>
