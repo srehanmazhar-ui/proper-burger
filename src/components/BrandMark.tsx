@@ -5,14 +5,14 @@ type Props = {
   variant?: "classic" | "premium";
 };
 
-export function BrandMark({ className = "", variant = "premium" }: Props) {
+export function BrandMark({ className = "" }: Props) {
   return (
     <Image
       className={`brand-mark ${className}`.trim()}
-      src={`/images/proper-burger-logo-${variant}.svg`}
+      src="/images/proper-burger-logo-storefront.png"
       alt=""
-      width={320}
-      height={56}
+      width={889}
+      height={156}
       priority
     />
   );
