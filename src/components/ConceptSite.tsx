@@ -2,9 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { MobileNav } from "@/components/MobileNav";
 import { PremiumMotion } from "@/components/PremiumMotion";
+import { BrandMark } from "@/components/BrandMark";
 import {
+  additionalMenuItems,
   burgers,
   Concept,
+  dessert,
   instagramUrl,
   mapsUrl,
   sides,
@@ -37,14 +40,13 @@ export function ConceptSite({ concept, alternate }: Props) {
       <div className="announcement">
         <p>Now serving at Rollz Sage Hill</p>
         <a href={mapsUrl} target="_blank" rel="noreferrer">
-          Get directions <span aria-hidden="true">↗</span>
+          Open map <span aria-hidden="true">↗</span>
         </a>
       </div>
 
       <header className="site-header">
         <Link href={concept.route} className="wordmark" aria-label="Proper Burger home">
-          <span>PROPER</span>
-          <span>BURGER</span>
+          <BrandMark />
         </Link>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
@@ -80,7 +82,7 @@ export function ConceptSite({ concept, alternate }: Props) {
               Explore the menu
             </a>
             <a href={mapsUrl} target="_blank" rel="noreferrer" className="button button-secondary">
-              Get directions
+              Open map
             </a>
           </div>
           <p className="hero-location">Inside {venueName}</p>
@@ -139,7 +141,7 @@ export function ConceptSite({ concept, alternate }: Props) {
                 <span className="item-number">0{index + 1}</span>
               </div>
               <div className="menu-card-copy">
-                <p className="menu-tag">{item.tag}</p>
+                <div className="menu-meta"><p className="menu-tag">{item.tag}</p>{item.price && <strong>{item.price}</strong>}</div>
                 <h3>{item.name}</h3>
                 <p>{item.description}</p>
               </div>
@@ -147,12 +149,17 @@ export function ConceptSite({ concept, alternate }: Props) {
           ))}
         </div>
 
-        <div className="menu-note" data-reveal="panel">
-          <strong>Current prices and availability</strong>
-          <p>Ask in store or check Instagram for the latest menu before ordering.</p>
-          <a href={instagramUrl} target="_blank" rel="noreferrer">
-            Check Instagram <span aria-hidden="true">↗</span>
-          </a>
+        <div className="menu-extras" data-reveal="panel">
+          <div className="menu-extras-heading">
+            <p className="eyebrow">Also on the menu</p>
+            <p>Freshly made in store. Ask about today’s availability.</p>
+          </div>
+          {additionalMenuItems.map((item) => (
+            <div className="menu-extra" key={item.name}>
+              <div><h3>{item.name}</h3><p>{item.description}</p></div>
+              <strong>{item.price}</strong>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -176,7 +183,7 @@ export function ConceptSite({ concept, alternate }: Props) {
                 />
               </div>
               <div>
-                <p className="menu-tag">{item.tag}</p>
+                <div className="menu-meta"><p className="menu-tag">{item.tag}</p>{item.price && <strong>{item.price}</strong>}</div>
                 <h3>{item.name}</h3>
                 <p>{item.description}</p>
               </div>
@@ -185,8 +192,19 @@ export function ConceptSite({ concept, alternate }: Props) {
         </div>
       </section>
 
+      <section className="dessert-section" data-reveal="split">
+        <div className="dessert-copy">
+          <p className="eyebrow">Leave room for dessert</p>
+          <h2>{dessert.name}</h2>
+          <p>{dessert.description}</p>
+          <a href={instagramUrl} target="_blank" rel="noreferrer" className="button button-secondary">See today’s desserts</a>
+        </div>
+        <div className="dessert-image">
+          <Image src={concept.id === "premium" && dessert.premiumImage ? dessert.premiumImage : dessert.image} alt={dessert.imageAlt} fill sizes="(max-width: 900px) 100vw, 50vw" />
+        </div>
+      </section>
+
       <section className="quality-section" data-reveal="quality">
-        <div className="quality-kicker"><span>01</span><p>Smashed on the grill</p></div>
         <div className="quality-copy" id="why-proper">
           <p className="eyebrow">Why Proper</p>
           {concept.id === "premium" ? (
@@ -200,7 +218,8 @@ export function ConceptSite({ concept, alternate }: Props) {
           )}
           <p>{concept.qualityCopy}</p>
         </div>
-        <div className="quality-steps">
+        <div className="quality-process">
+          <div><span>01</span><p>Smashed on the grill</p></div>
           <div><span>02</span><p>Layered with melted cheese</p></div>
           <div><span>03</span><p>Served hot and ready</p></div>
         </div>
@@ -225,11 +244,10 @@ export function ConceptSite({ concept, alternate }: Props) {
       <section className="closing-cta" data-reveal="closing">
         <p className="eyebrow">Come hungry</p>
         <h2>Make it a Proper one.</h2>
-        <a href={mapsUrl} target="_blank" rel="noreferrer" className="button button-primary">Get directions</a>
       </section>
 
       <footer className="site-footer">
-        <Link href={concept.route} className="wordmark" aria-label="Proper Burger home"><span>PROPER</span><span>BURGER</span></Link>
+        <Link href={concept.route} className="wordmark" aria-label="Proper Burger home"><BrandMark /></Link>
         <p>Smashburgers and crispy sides at Rollz Sage Hill.</p>
         <div><a href="#menu">Menu</a><a href="#visit">Visit</a><a href={instagramUrl} target="_blank" rel="noreferrer">Instagram</a></div>
       </footer>
@@ -240,7 +258,7 @@ export function ConceptSite({ concept, alternate }: Props) {
 
       <nav className="mobile-action-bar" aria-label="Quick actions">
         <a href="#menu">View menu</a>
-        <a href={mapsUrl} target="_blank" rel="noreferrer">Directions</a>
+        <a href={mapsUrl} target="_blank" rel="noreferrer">Open map</a>
       </nav>
     </main>
   );
