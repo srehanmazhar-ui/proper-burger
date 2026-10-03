@@ -815,11 +815,11 @@ h3 {
 .theme-premium .dessert-image img {
   object-fit: contain;
   object-position: center;
-  transform: scale(0.82);
+  transform: scale(0.72);
 }
 
 .theme-premium .dessert-section:hover .dessert-image img {
-  transform: scale(0.85);
+  transform: scale(0.75);
 }
 
 .visit-section {
