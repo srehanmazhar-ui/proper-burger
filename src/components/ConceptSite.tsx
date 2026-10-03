@@ -37,6 +37,7 @@ export function ConceptSite({ concept, alternate }: Props) {
   return (
     <main className={`site theme-${concept.id}`}>
       {concept.id === "premium" && <PremiumMotion />}
+      {concept.id === "premium" && <div className="scroll-progress" aria-hidden="true" />}
       <div className="announcement">
         <p>Now serving at Rollz Sage Hill</p>
         <a href={mapsUrl} target="_blank" rel="noreferrer">
@@ -57,7 +58,7 @@ export function ConceptSite({ concept, alternate }: Props) {
           ))}
         </nav>
 
-        <a href="#menu" className="header-cta">
+        <a href="#menu" className="header-cta" data-magnetic>
           View menu
         </a>
 
@@ -78,17 +79,17 @@ export function ConceptSite({ concept, alternate }: Props) {
           )}
           <p className="hero-intro">{concept.intro}</p>
           <div className="button-row">
-            <a href="#menu" className="button button-primary">
+            <a href="#menu" className="button button-primary" data-magnetic>
               Explore the menu
             </a>
-            <a href={mapsUrl} target="_blank" rel="noreferrer" className="button button-secondary">
+            <a href={mapsUrl} target="_blank" rel="noreferrer" className="button button-secondary" data-magnetic>
               Open map
             </a>
           </div>
           <p className="hero-location">Inside {venueName}</p>
         </div>
 
-        <div className="hero-visual">
+        <div className="hero-visual" data-parallax>
           <Image
             src={concept.heroImage}
             alt={concept.heroAlt}
@@ -199,7 +200,7 @@ export function ConceptSite({ concept, alternate }: Props) {
           <p>{dessert.description}</p>
           <a href={instagramUrl} target="_blank" rel="noreferrer" className="button button-secondary">See today’s desserts</a>
         </div>
-        <div className="dessert-image">
+        <div className="dessert-image" data-parallax>
           <Image src={concept.id === "premium" && dessert.premiumImage ? dessert.premiumImage : dessert.image} alt={dessert.imageAlt} fill sizes="(max-width: 900px) 100vw, 50vw" />
         </div>
       </section>
@@ -226,7 +227,7 @@ export function ConceptSite({ concept, alternate }: Props) {
       </section>
 
       <section className="visit-section" data-reveal="split">
-        <div className="visit-image">
+        <div className="visit-image" data-parallax>
           <Image src="/images/proper-storefront.jpg" alt="Proper Burger storefront beside Rollz Ice Cream and Desserts in Sage Hill." fill sizes="(max-width: 900px) 100vw, 52vw" />
         </div>
         <div className="visit-copy" id="visit">

@@ -1,32 +1,33 @@
-# Proper Burger
+# Proper Burger Website
 
-Production Next.js codebase for two approved Proper Burger website concepts.
+Final Next.js website for Proper Burger in Sage Hill, Calgary.
 
-- `/classic` — Classic Burger Joint identity using Proper Red `#B22222`, Burger Cream `#F7EAD9`, and Charcoal `#1A1A1A`.
-- `/premium` — Premium Black identity using black, charcoal, soft white, and steel grey with a storefront-led cinematic direction.
+- `/premium` — primary black-and-silver website and SEO canonical page.
+- `/classic` — retained alternate visual concept; excluded from search indexing to avoid duplicate content.
+- `/` — redirects visitors to `/premium`.
 
-The site intentionally does not invent unknown client facts. Prices, addresses, hours, ordering URLs, phone numbers, and operational claims are marked `CLIENT CONFIRMATION REQUIRED`.
-
-## Local Development
+## Run locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open `http://localhost:3000/classic` and `http://localhost:3000/premium`.
+Open `http://localhost:3000/premium`.
 
-## Production Check
+## Production check
 
 ```bash
 npm run build
+npm run start
 ```
 
-## Documentation
+## Final domain
 
-- `docs/PROJECT-STATUS.md`
-- `docs/DECISIONS.md`
-- `docs/CLIENT-CONFIRMATIONS.md`
-- `docs/CHANGELOG.md`
-- `docs/BRAND-A.md`
-- `docs/BRAND-B.md`
+Set `NEXT_PUBLIC_SITE_URL` to the final HTTPS website origin before the production build. Copy `.env.example` to `.env.local` for local testing, or add the value through the selected hosting provider.
+
+The canonical URL, Open Graph URL, restaurant structured data, sitemap and robots file all use this setting automatically.
+
+## Handover
+
+See `HANDOVER.md` for the completed features, QA record and launch checklist.
