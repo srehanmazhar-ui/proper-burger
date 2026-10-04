@@ -468,7 +468,7 @@ h3 {
 
 .menu-section,
 .sides-section {
-  padding: clamp(84px, 10vw, 150px) max(24px, calc((100vw - var(--max-width)) / 2));
+  padding: clamp(68px, 7vw, 110px) max(24px, calc((100vw - var(--max-width)) / 2));
 }
 
 .menu-section {
@@ -485,7 +485,7 @@ h3 {
   grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.55fr);
   gap: 70px;
   align-items: end;
-  margin-bottom: clamp(42px, 6vw, 78px);
+  margin-bottom: clamp(32px, 4vw, 56px);
 }
 
 .section-heading h2 {
@@ -795,7 +795,7 @@ h3 {
 
 .dessert-section {
   display: grid;
-  min-height: 620px;
+  min-height: 520px;
   grid-template-columns: 0.88fr 1.12fr;
   border-top: 1px solid var(--line);
   background: var(--surface);
@@ -806,7 +806,7 @@ h3 {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: clamp(64px, 8vw, 120px);
+  padding: clamp(48px, 6vw, 84px);
 }
 
 .dessert-copy h2 {
@@ -823,7 +823,7 @@ h3 {
 
 .dessert-image {
   position: relative;
-  min-height: 560px;
+  min-height: 500px;
   overflow: hidden;
   background: #050505;
 }
@@ -860,13 +860,13 @@ h3 {
 .visit-section {
   display: grid;
   grid-template-columns: 1.08fr 0.92fr;
-  min-height: 680px;
+  min-height: 580px;
   background: var(--surface);
 }
 
 .visit-image {
   position: relative;
-  min-height: 580px;
+  min-height: 520px;
   overflow: hidden;
 }
 
@@ -884,7 +884,7 @@ h3 {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: clamp(64px, 8vw, 120px);
+  padding: clamp(48px, 6vw, 84px);
 }
 
 .visit-copy h2 {
@@ -914,11 +914,11 @@ h3 {
 
 .closing-cta {
   display: flex;
-  min-height: 440px;
+  min-height: 340px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 80px 24px;
+  padding: 64px 24px;
   background: var(--brand);
   color: var(--brand-ink);
   text-align: center;
@@ -1264,7 +1264,7 @@ summary:focus-visible {
 
   .visit-copy {
     max-width: none;
-    padding: 72px 24px;
+    padding: 58px 24px;
   }
 
   .site-footer {
@@ -1369,7 +1369,7 @@ summary:focus-visible {
   }
 
   .dessert-copy {
-    padding: 66px 24px;
+    padding: 54px 24px;
   }
 
   .dessert-image {

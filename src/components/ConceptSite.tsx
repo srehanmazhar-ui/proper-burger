@@ -3,6 +3,7 @@ import Link from "next/link";
 import { MobileNav } from "@/components/MobileNav";
 import { PremiumMotion } from "@/components/PremiumMotion";
 import { BrandMark } from "@/components/BrandMark";
+import { orderUrl } from "@/data/site";
 import {
   additionalMenuItems,
   burgers,
@@ -17,16 +18,19 @@ import {
 
 type Props = {
   concept: Concept;
-  alternate: Concept;
 };
 
 export const navItems = [
   { href: "#menu", label: "Menu" },
-  { href: "#why-proper", label: "Why Proper" },
   { href: "#visit", label: "Visit" }
 ];
 
-export function ConceptSite({ concept, alternate }: Props) {
+export function ConceptSite({ concept }: Props) {
+  const orderHref = orderUrl || "#menu";
+  const orderLabel = orderUrl ? "Order online" : "View menu";
+  const orderLinkProps = orderUrl
+    ? { target: "_blank" as const, rel: "noreferrer" }
+    : {};
   const proofPoints = [
     "Fresh beef",
     "Crisp smashed edges",
@@ -58,8 +62,8 @@ export function ConceptSite({ concept, alternate }: Props) {
           ))}
         </nav>
 
-        <a href="#menu" className="header-cta" data-magnetic>
-          View menu
+        <a href={orderHref} className="header-cta" data-magnetic {...orderLinkProps}>
+          {orderLabel}
         </a>
 
         <MobileNav items={navItems} directionsUrl={mapsUrl} />
@@ -79,12 +83,18 @@ export function ConceptSite({ concept, alternate }: Props) {
           )}
           <p className="hero-intro">{concept.intro}</p>
           <div className="button-row">
-            <a href="#menu" className="button button-primary" data-magnetic>
-              Explore the menu
+            <a href={orderHref} className="button button-primary" data-magnetic {...orderLinkProps}>
+              {orderUrl ? "Order online" : "Explore the menu"}
             </a>
-            <a href={mapsUrl} target="_blank" rel="noreferrer" className="button button-secondary" data-magnetic>
-              Open map
-            </a>
+            {orderUrl ? (
+              <a href="#menu" className="button button-secondary" data-magnetic>
+                View menu
+              </a>
+            ) : (
+              <a href={mapsUrl} target="_blank" rel="noreferrer" className="button button-secondary" data-magnetic>
+                Open map
+              </a>
+            )}
           </div>
           <p className="hero-location">Inside {venueName}</p>
         </div>
@@ -205,27 +215,6 @@ export function ConceptSite({ concept, alternate }: Props) {
         </div>
       </section>
 
-      <section className="quality-section" data-reveal="quality">
-        <div className="quality-copy" id="why-proper">
-          <p className="eyebrow">Why Proper</p>
-          {concept.id === "premium" ? (
-            <h2 className="quality-kinetic" aria-label={concept.qualityHeading}>
-              <span>The crunch.</span>
-              <span>The melt.</span>
-              <span>The payoff.</span>
-            </h2>
-          ) : (
-            <h2>{concept.qualityHeading}</h2>
-          )}
-          <p>{concept.qualityCopy}</p>
-        </div>
-        <div className="quality-process">
-          <div><span>01</span><p>Smashed on the grill</p></div>
-          <div><span>02</span><p>Layered with melted cheese</p></div>
-          <div><span>03</span><p>Served hot and ready</p></div>
-        </div>
-      </section>
-
       <section className="visit-section" data-reveal="split">
         <div className="visit-image" data-parallax>
           <Image src="/images/proper-storefront.jpg" alt="Proper Burger storefront beside Rollz Ice Cream and Desserts in Sage Hill." fill sizes="(max-width: 900px) 100vw, 52vw" />
@@ -253,12 +242,8 @@ export function ConceptSite({ concept, alternate }: Props) {
         <div><a href="#menu">Menu</a><a href="#visit">Visit</a><a href={instagramUrl} target="_blank" rel="noreferrer">Instagram</a></div>
       </footer>
 
-      <Link href={alternate.route} className="concept-switcher" aria-label={`Switch to ${alternate.optionLabel} website option`}>
-        <span>Website option</span><strong>{concept.alternateLabel}</strong>
-      </Link>
-
       <nav className="mobile-action-bar" aria-label="Quick actions">
-        <a href="#menu">View menu</a>
+        <a href={orderHref} {...orderLinkProps}>{orderLabel}</a>
         <a href={mapsUrl} target="_blank" rel="noreferrer">Open map</a>
       </nav>
     </main>

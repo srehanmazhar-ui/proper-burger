@@ -9,10 +9,9 @@ export type MenuItem = {
 };
 
 export type Concept = {
-  id: "classic" | "premium";
-  route: "/classic" | "/premium";
+  id: "premium";
+  route: "/premium";
   optionLabel: string;
-  alternateLabel: string;
   headline: string;
   intro: string;
   heroImage: string;
@@ -180,28 +179,10 @@ export const dessert: MenuItem = {
 };
 
 export const concepts: Record<Concept["id"], Concept> = {
-  classic: {
-    id: "classic",
-    route: "/classic",
-    optionLabel: "Classic Red",
-    alternateLabel: "See Black & Silver",
-    headline: "Hot. Crispy. Proper.",
-    intro:
-      "Fresh smashburgers with crisp edges, melted cheese and the kind of sides that make the whole table lean in.",
-    heroImage: "/images/og-double.jpg",
-    heroAlt: "Proper Burger OG Double photographed on a wooden board.",
-    menuHeading: "Pick your smash.",
-    menuIntro:
-      "Start with one, two or three patties, then build the rest of the meal around it.",
-    qualityHeading: "Straightforward food. Serious burger energy.",
-    qualityCopy:
-      "Proper Burger keeps the choice simple: smashed beef, crispy edges, melted cheese, punchy pickles and sides worth stealing."
-  },
   premium: {
     id: "premium",
     route: "/premium",
     optionLabel: "Black & Silver",
-    alternateLabel: "See Classic Red",
     headline: "Smashed. Stacked. Properly.",
     intro:
       "Crisp-edged smashburgers, stacked with intention and served without the unnecessary extras.",

@@ -45,7 +45,7 @@ export default function PremiumPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantSchema).replace(/</g, "\\u003c") }}
       />
-      <ConceptSite concept={concepts.premium} alternate={concepts.classic} />
+      <ConceptSite concept={concepts.premium} />
     </>
   );
 }
