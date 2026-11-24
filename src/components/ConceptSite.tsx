@@ -5,20 +5,15 @@ import { PremiumMotion } from "@/components/PremiumMotion";
 import { BrandMark } from "@/components/BrandMark";
 import { orderUrl } from "@/data/site";
 import {
+  additionalMenuItems,
   burgers,
-  chickenAndMore,
-  coffee,
-  desserts,
+  Concept,
+  dessert,
   instagramUrl,
   mapsUrl,
-  otherSides,
   sides,
-  smashOptions,
   venueAddress,
-  venueName,
-  type Concept,
-  type MenuItem,
-  type MenuPrice
+  venueName
 } from "@/data/restaurant";
 
 type Props = {
@@ -29,45 +24,6 @@ export const navItems = [
   { href: "#menu", label: "Menu" },
   { href: "#visit", label: "Visit" }
 ];
-
-function MenuPrices({ price }: { price: MenuPrice }) {
-  if (typeof price === "string") return <strong className="menu-price">{price}</strong>;
-
-  return (
-    <ul className="menu-prices">
-      {price.map(({ label, amount }) => (
-        <li key={label}>
-          <span>{label}</span>{" "}<strong className="menu-price">{amount}</strong>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-function MenuRows({ items }: { items: MenuItem[] }) {
-  return (
-    <div className="menu-rows">
-      {items.map((item) => (
-        <div className="menu-row" key={item.name}>
-          <div>
-            <h3>{item.name}</h3>
-            {item.description && <p>{item.description}</p>}
-          </div>
-          <MenuPrices price={item.price} />
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function MenuGroup({ title, items }: { title: string; items: MenuItem[] }) {
-  return (
-    <section className="menu-group" data-reveal="panel">
-      <h2>{title}</h2>
-      <MenuRows items={items} />
-    </section>
-  );
-}
 
 export function ConceptSite({ concept }: Props) {
   const orderHref = orderUrl || "#menu";
@@ -188,7 +144,7 @@ export function ConceptSite({ concept }: Props) {
             <article className={`menu-card reveal-delay-${index + 1}`} data-reveal="card" key={item.name}>
               <div className="menu-card-image">
                 <Image
-                  src={item.image}
+                  src={concept.id === "premium" && item.premiumImage ? item.premiumImage : item.image}
                   alt={item.imageAlt}
                   fill
                   sizes="(max-width: 760px) 100vw, 33vw"
@@ -196,24 +152,33 @@ export function ConceptSite({ concept }: Props) {
                 <span className="item-number">0{index + 1}</span>
               </div>
               <div className="menu-card-copy">
-                {item.tag && <p className="menu-tag">{item.tag}</p>}
+                <div className="menu-meta"><p className="menu-tag">{item.tag}</p>{item.price && <strong>{item.price}</strong>}</div>
                 <h3>{item.name}</h3>
-                <MenuPrices price={item.price} />
-                {item.description && <p>{item.description}</p>}
+                <p>{item.description}</p>
               </div>
             </article>
           ))}
         </div>
 
-        <MenuGroup title="More smash options" items={smashOptions} />
-        <MenuGroup title="Chicken & More" items={chickenAndMore} />
+        <div className="menu-extras" data-reveal="panel">
+          <div className="menu-extras-heading">
+            <p className="eyebrow">Also on the menu</p>
+            <p>Freshly made in store. Ask about today’s availability.</p>
+          </div>
+          {additionalMenuItems.map((item) => (
+            <div className="menu-extra" key={item.name}>
+              <div><h3>{item.name}</h3><p>{item.description}</p></div>
+              <strong>{item.price}</strong>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="sides-section" aria-labelledby="sides-title">
         <div className="section-heading compact" data-reveal="heading">
           <div>
             <p className="eyebrow">Finish the order</p>
-            <h2 id="sides-title">Fries & Sides</h2>
+            <h2 id="sides-title">Sides worth making room for.</h2>
           </div>
         </div>
 
@@ -222,37 +187,33 @@ export function ConceptSite({ concept }: Props) {
             <article className={`side-card reveal-delay-${index + 1}`} data-reveal="card" key={item.name}>
               <div className="side-card-image">
                 <Image
-                  src={item.image}
+                  src={concept.id === "premium" && item.premiumImage ? item.premiumImage : item.image}
                   alt={item.imageAlt}
                   fill
                   sizes="(max-width: 760px) 100vw, 33vw"
                 />
               </div>
               <div>
-                {item.tag && <p className="menu-tag">{item.tag}</p>}
+                <div className="menu-meta"><p className="menu-tag">{item.tag}</p>{item.price && <strong>{item.price}</strong>}</div>
                 <h3>{item.name}</h3>
-                <MenuPrices price={item.price} />
-                {item.description && <p>{item.description}</p>}
+                <p>{item.description}</p>
               </div>
             </article>
           ))}
         </div>
-        <MenuRows items={otherSides} />
       </section>
 
       <section className="dessert-section" data-reveal="split">
         <div className="dessert-copy">
-          <h2>Desserts</h2>
-          <MenuRows items={desserts} />
+          <p className="eyebrow">Leave room for dessert</p>
+          <h2>{dessert.name}</h2>
+          <p>{dessert.description}</p>
+          <a href={instagramUrl} target="_blank" rel="noreferrer" className="button button-secondary">See today’s desserts</a>
         </div>
         <div className="dessert-image" data-parallax>
-          <Image src="/images/kunafa-cup-black.png" alt="Chocolate strawberry kunafa cup from Rollz Ice Cream & Desserts." fill sizes="(max-width: 900px) 100vw, 50vw" />
+          <Image src={concept.id === "premium" && dessert.premiumImage ? dessert.premiumImage : dessert.image} alt={dessert.imageAlt} fill sizes="(max-width: 900px) 100vw, 50vw" />
         </div>
       </section>
-
-      <div className="sides-section">
-        <MenuGroup title="Coffee" items={coffee} />
-      </div>
 
       <section className="visit-section" data-reveal="split">
         <div className="visit-image" data-parallax>
