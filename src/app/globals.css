@@ -340,20 +340,15 @@ h3 {
 }
 
 .hero-visual img {
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
-  transition: transform 800ms var(--ease);
-}
-
-.hero:hover .hero-visual img {
-  transform: scale(1.025);
+  padding: clamp(24px, 4vw, 56px);
 }
 
 .theme-premium .hero-visual img {
-  object-fit: contain;
-  object-position: center bottom;
   filter: saturate(0.66) contrast(1.02) brightness(0.96);
   animation: premium-image-in 1400ms var(--ease) both;
+  transform: translate3d(0, var(--parallax-y, 0), 0);
   will-change: transform;
 }
 
@@ -542,18 +537,22 @@ h3 {
   background: var(--surface-alt);
 }
 
-.menu-card-image img,
+.menu-card-image img {
+  object-fit: contain;
+  object-position: center;
+  padding: clamp(16px, 3vw, 32px);
+  transition: filter 400ms ease;
+}
+
 .side-card-image img,
 .visit-image img {
   object-fit: cover;
 }
 
-.menu-card-image img,
 .side-card-image img {
   transition: transform 700ms var(--ease), filter 400ms ease;
 }
 
-.theme-premium .menu-card-image img,
 .theme-premium .side-card-image img {
   object-fit: contain;
   object-position: center;
@@ -565,14 +564,6 @@ h3 {
   background: #050505;
 }
 
-.theme-premium .menu-card:nth-child(1) { --image-scale: 1.35; --image-hover-scale: 1.39; }
-.theme-premium .menu-card:nth-child(3) { --image-scale: 0.82; --image-hover-scale: 0.85; }
-.theme-premium .menu-card:nth-child(4) { --image-scale: 1.25; --image-hover-scale: 1.29; }
-
-.theme-premium .menu-card:nth-child(2),
-.theme-premium .menu-card:nth-child(5),
-.theme-premium .menu-card:nth-child(6) { --image-scale: 0.84; --image-hover-scale: 0.88; }
-
 .theme-premium .side-card:nth-child(1) { --image-scale: 1.25; --image-hover-scale: 1.29; }
 .theme-premium .side-card:nth-child(2) { --image-scale: 1.05; --image-hover-scale: 1.09; }
 .theme-premium .side-card:nth-child(3) { --image-scale: 1; --image-hover-scale: 1.04; }
@@ -580,9 +571,12 @@ h3 {
 .theme-premium .side-card:nth-child(5) { --image-scale: 1.25; --image-hover-scale: 1.29; }
 .theme-premium .side-card:nth-child(6) { --image-scale: 1.25; --image-hover-scale: 1.29; }
 
-.theme-premium .menu-card:hover img,
 .theme-premium .side-card:hover img {
   transform: scale(var(--image-hover-scale, 1.045));
+}
+
+.theme-premium .menu-card:hover img,
+.theme-premium .side-card:hover img {
   filter: contrast(1.06) brightness(1.05);
 }
 
@@ -1024,8 +1018,8 @@ h3 {
 }
 
 @keyframes premium-image-in {
-  from { opacity: 0; transform: translate3d(0, var(--parallax-y, 0), 0) scale(1.08); }
-  to { opacity: 1; transform: translate3d(0, var(--parallax-y, 0), 0) scale(1); }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes premium-stamp-in {
