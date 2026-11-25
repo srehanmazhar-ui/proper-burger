@@ -137,7 +137,7 @@ h3 {
 
 .brand-mark {
   display: block;
-  width: clamp(190px, 18vw, 280px);
+  width: clamp(92px, 12vw, 128px);
   height: auto;
 }
 
@@ -566,11 +566,12 @@ h3 {
 }
 
 .theme-premium .menu-card:nth-child(1) { --image-scale: 1.35; --image-hover-scale: 1.39; }
-.theme-premium .menu-card:nth-child(2) { --image-scale: 1.28; --image-hover-scale: 1.32; }
 .theme-premium .menu-card:nth-child(3) { --image-scale: 0.82; --image-hover-scale: 0.85; }
 .theme-premium .menu-card:nth-child(4) { --image-scale: 1.25; --image-hover-scale: 1.29; }
-.theme-premium .menu-card:nth-child(5) { --image-scale: 0.82; --image-hover-scale: 0.85; }
-.theme-premium .menu-card:nth-child(6) { --image-scale: 0.80; --image-hover-scale: 0.83; }
+
+.theme-premium .menu-card:nth-child(2),
+.theme-premium .menu-card:nth-child(5),
+.theme-premium .menu-card:nth-child(6) { --image-scale: 0.84; --image-hover-scale: 0.88; }
 
 .theme-premium .side-card:nth-child(1) { --image-scale: 1.25; --image-hover-scale: 1.29; }
 .theme-premium .side-card:nth-child(2) { --image-scale: 1.05; --image-hover-scale: 1.09; }

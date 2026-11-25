@@ -9,10 +9,11 @@ export function BrandMark({ className = "" }: Props) {
   return (
     <Image
       className={`brand-mark ${className}`.trim()}
-      src="/images/proper-burger-logo-storefront.png"
+      src="/images/proper-burger-logo-stacked.webp"
       alt=""
-      width={2005}
-      height={238}
+      width={520}
+      height={256}
+      sizes="128px"
       priority
     />
   );

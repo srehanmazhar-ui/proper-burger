@@ -44,9 +44,8 @@ export const burgers: MenuItem[] = [
     name: "Double Smash",
     description:
       "Two smashed Alberta beef patties with cheese, pickles, onions and Proper Sauce on a toasted Martin’s potato bun.",
-    image: "/images/proper-single.jpg",
-    premiumImage: "/images/proper-single-black.png",
-    imageAlt: "Proper Burger double smashburger with melted cheese.",
+    image: "/images/proper-smash-menu.webp",
+    imageAlt: "Proper Burger double smashburger with cheese and pickles on a toasted bun.",
     tag: "Crowd favourite",
     price: "$10.99"
   },
@@ -74,8 +73,7 @@ export const burgers: MenuItem[] = [
     name: "Cluckin’ Hot",
     description:
       "Crispy chicken with lettuce, pickles, garlic sauce and Proper Sauce on a toasted butter bun.",
-    image: "/images/cluckin-hot.jpg",
-    premiumImage: "/images/cluckin-hot-black.png",
+    image: "/images/crispy-chicken-menu.webp",
     imageAlt: "Proper Burger Cluckin’ Hot crispy chicken burger.",
     tag: "Spicy chicken",
     price: "$11.99"
@@ -84,8 +82,7 @@ export const burgers: MenuItem[] = [
     name: "The Plant Stack",
     description:
       "A veggie patty and potato patty with lettuce, tomato, onion, hot sauce and Proper Sauce on a butter bun.",
-    image: "/images/plant-stack.jpg",
-    premiumImage: "/images/plant-stack-black.png",
+    image: "/images/spicy-veggie-menu.webp",
     imageAlt: "Proper Burger Plant Stack veggie burger.",
     tag: "Plant powered",
     price: "$9.99"
